@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import {Route, Routes, BrowserRouter, NavLink} from "react-router-dom";
 import Axios from "axios";
-//import './App.css';
 import './index.css';
-import Home from "./Home";
-import MenuCliente from "./MenuCliente";
+import FlexLogo from './images/FLEXBPO.jfif';
+import Home from './Home';
+import MenuAdmin from './MenuAdmin';
+import SeleccionarEmpresa from './SeleccionarEmpresa';
+import SubirReporte from './SubirReporte';
 
 
 function App() {
@@ -26,8 +28,9 @@ function App() {
 
       <div className="content">
         <div className="header">
-          <NavLink exact to="/">
-            {/* <img className="logo" src={pkglobal} alt="No se pudo cargar el logo"/>  */}</NavLink>
+          <NavLink to='/'>
+            <img className="logo" src={FlexLogo} alt="No se pudo cargar el logo"/> 
+            </NavLink>
             <div className ="coronanalysTitle">Financh</div>
         </div>
 
@@ -39,7 +42,9 @@ function App() {
             <div className="conexiones">
               <Routes>
               <Route exact path="/" element={<Home />}/>
-              <Route path="/MenuCliente" element={<MenuCliente />}/>
+              <Route path="/MenuAdmin" element={<MenuAdmin />}/>
+              <Route path="/SeleccionarEmpresa" element={<SeleccionarEmpresa />}/>
+              {/*  Marca error <Route path="/SubirReporte" element={<SubirReporte />}/> */}
 
               {/*<idTipoCuentaContext.Provider value = {{idTipoCuenta, setIdTipoCuenta}} >
               <idContext.Provider value = {{id, setId}} >
@@ -67,7 +72,7 @@ function App() {
         <footer className="footer">
           <div>Aviso de privacidad</div>
           <p>
-            La oficina IT. Corp recopila datos como correo electrónico... 
+            La oficina IT. Corp...
           </p>
         </footer>
 

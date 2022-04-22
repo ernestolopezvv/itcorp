@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {useNavigate} from "react-router-dom";
 
 function RegistrarEmpresa () {
   const history = useNavigate();
+    const[nombreEmpresa, setNombreEmpresa] = useState("");
 
-
+    /*const displayInfo = () => {
+        console.log(nombreEmpresa);
+    };*/
     return(
         <div className="main">
           <div className = "titulo"><h1>Agregar Nueva Empresa</h1></div>
@@ -13,7 +16,9 @@ function RegistrarEmpresa () {
             </div>
             <div className= "inputInformation">
                 <label>Nombre de la empresa: </label> 
-                <input type="text" />  
+                <input type="text" onChange={ (event) => {
+                    setNombreEmpresa(event.target.value);
+                }} />  
                 <label>Tipo de moneda:</label> 
                 <input type="text" />   
             </div> 

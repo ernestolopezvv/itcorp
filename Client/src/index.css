@@ -261,6 +261,8 @@
     margin-right: auto;
     background: #e68c1665;
     padding-left: 0.5%;
+    display: flex;
+    flex-direction: column;
   }
 
   input {

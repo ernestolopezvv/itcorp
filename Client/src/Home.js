@@ -20,9 +20,7 @@ function Home() {
             <p> Ya no hay tiempos de espera ni problemas en acceder a la información que necesitas al momento. No dependas de tu computadora, oficina ni contador. </p>
             <p> FlexBPO, te facilita la vida. </p>
             </div>
-             
       </div>
-
   );
   }
  

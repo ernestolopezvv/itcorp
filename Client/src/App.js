@@ -44,7 +44,7 @@ function App() {
               <Route exact path="/" element={<Home />}/>
               <Route path="/MenuAdmin" element={<MenuAdmin />}/>
               <Route path="/SeleccionarEmpresa" element={<SeleccionarEmpresa />}/>
-             <Route path="/SubirReporte" element={<SubirReporte />}/>
+              {/*  Marca error <Route path="/SubirReporte" element={<SubirReporte />}/> */}
 
               {/*<idTipoCuentaContext.Provider value = {{idTipoCuenta, setIdTipoCuenta}} >
               <idContext.Provider value = {{id, setId}} >

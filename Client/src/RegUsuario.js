@@ -9,7 +9,7 @@ const register = () => {
         usuario: usuarioReg,
         contrasena: contrasenaReg,
         rol: rolReg
-    }).then ((response) => {
+    }).then((response) => {
         console.log(response);
     });
 }

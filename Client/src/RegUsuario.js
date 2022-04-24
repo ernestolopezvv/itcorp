@@ -39,7 +39,7 @@ function app(){
             <input type="text"  
                 onChange={(e) => 
                 {setRolReg(e.target.value);}}/>
-            <button>registrarte </button>
+            <button onClick={register}>registrarte </button>
         </div>
     </div>
    ); 

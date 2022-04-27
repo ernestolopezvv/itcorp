@@ -1,13 +1,20 @@
 import React, { useContext, useState } from "react";
 import {useNavigate} from "react-router-dom";
+import Axios from 'axios';
 
 function RegistrarEmpresa () {
   const history = useNavigate();
-    const[nombreEmpresa, setNombreEmpresa] = useState("");
+    const[Nombre, setNombre] = useState("");
 
-    /*const displayInfo = () => {
-        console.log(nombreEmpresa);
-    };*/
+    const registrar = () => {
+      
+      
+      Axios.post('http://localhost:3001/crear-empresa', {Nombre: Nombre}).then(() =>{
+        console.log("Listo");
+      });
+    };
+
+  
     return(
         <div className="main">
           <div className = "titulo"><h1>Agregar Nueva Empresa</h1></div>
@@ -17,13 +24,11 @@ function RegistrarEmpresa () {
             <div className= "inputInformation">
                 <label>Nombre de la empresa: </label> 
                 <input type="text" onChange={ (event) => {
-                    setNombreEmpresa(event.target.value);
-                }} />  
-                <label>Tipo de moneda:</label> 
-                <input type="text" />   
+                    setNombre(event.target.value);
+                }} />   
             </div> 
             <div className = "centeredContainer">
-              <button>Agregar nueva empresa</button>        
+              <button onClick={registrar}>Agregar nueva empresa</button>        
             </div>
           </div>
     );

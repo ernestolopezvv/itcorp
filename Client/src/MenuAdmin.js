@@ -15,6 +15,7 @@ function MenuAdmin () {
               <button className="button"onClick={()=> history("/SeleccionarEmpresa")}>Registrar Información</button>
               <button className="button">Generar Reporte</button>
               <button className="button">Administrar usuarios</button>
+              <button className="button"onClick={()=> history("/RegistrarEmpresa")}>Agregar Empresa</button>
             </div>
           </div>
     );

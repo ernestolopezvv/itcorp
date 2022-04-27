@@ -7,6 +7,7 @@ import Home from './Home';
 import MenuAdmin from './MenuAdmin';
 import SeleccionarEmpresa from './SeleccionarEmpresa';
 import SubirReporte from './SubirReporte';
+import RegistrarEmpresa from "./RegistrarEmpresa";
 
 
 function App() {
@@ -44,7 +45,8 @@ function App() {
               <Route exact path="/" element={<Home />}/>
               <Route path="/MenuAdmin" element={<MenuAdmin />}/>
               <Route path="/SeleccionarEmpresa" element={<SeleccionarEmpresa />}/>
-             <Route path="/SubirReporte" element={<SubirReporte />}/>
+              <Route path="/SubirReporte" element={<SubirReporte />}/>
+              <Route path="/RegistrarEmpresa" element={<RegistrarEmpresa />}/>
 
               {/*<idTipoCuentaContext.Provider value = {{idTipoCuenta, setIdTipoCuenta}} >
               <idContext.Provider value = {{id, setId}} >

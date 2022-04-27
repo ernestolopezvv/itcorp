@@ -6,23 +6,9 @@ import {useNavigate} from "react-router-dom";
 
 function SubirReporte () {
 
-  const [archivo, setArchivo] = useState("");
-
-
-//   const subirArchivo = () => {
-//     console.log(archivo);
-//     Axios.post("http://localhost:3001/api/xlsx", {
-//   })
-// };
-
-  // handleFile(e) 
-  // {
-  //   console.log(e.target.files, "$$$$");
-
-  // };
- 
     // a local state to store the currently selected file.
     const [selectedFile, setSelectedFile] = React.useState(null);
+    const [selectedFileMov, setSelectedFileMov] = React.useState(null);
 
   
     const handleSubmit = (event) => {
@@ -34,10 +20,6 @@ function SubirReporte () {
       console.log(selectedFile);
       try {
         const response = Axios.post( "http://localhost:3001/api/xlsx", form, {
-      //     // data: selectedFile,
-      //     headers: { "Content-Type": "multipart/form-data" },
-      //     // headers: { "Nivel": "", "  C ó d i g o": "", "N o m b r e": "", "T i p o": "" },
-
         });
       } catch(error) {
         console.log(error)
@@ -48,8 +30,28 @@ function SubirReporte () {
       setSelectedFile(event.target.files[0])
     }
 
-  const history = useNavigate();
+    // Movimientos
 
+    const handleSubmitMov = (event) => {
+      event.preventDefault()
+
+      const form = new FormData();
+      form.append("file", selectedFileMov);
+      
+      console.log(selectedFileMov);
+      try {
+        const response = Axios.post( "http://localhost:3001/api/movimientos", form, {
+        });
+      } catch(error) {
+        console.log(error)
+      };
+    }
+  
+    const handleFileSelectMov = (event) => {
+      setSelectedFileMov(event.target.files[0])
+    }
+
+  const history = useNavigate();
 
     return(
         <div className="main">
@@ -61,7 +63,14 @@ function SubirReporte () {
 
               
               <form onSubmit={handleSubmit}> <br/>
-              <input type="submit" value="Subir Reporte" />
+              <input type="submit" value="Subir Cuentas" />
+              </form>
+              <br/>
+              <input type="file" onChange={handleFileSelectMov}/>
+
+              
+              <form onSubmit={handleSubmitMov}> <br/>
+              <input type="submit" value="Subir Movimientos" />
               </form>
 
             </div>

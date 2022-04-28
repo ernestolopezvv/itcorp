@@ -254,8 +254,8 @@
   
   }
 
-  .inputInformation{
-    width: 30%;
+  .agregarEmpresa{
+    width: 50%;
     height: 20%;
     margin-left: auto;
     margin-right: auto;
@@ -265,8 +265,25 @@
     flex-direction: column;
   }
 
+  .agregarEmpresa button{
+    
+    width: 23%;
+    height: 10%;
+    margin-left: 75%;
+    margin-top: -9%;
+    margin-bottom: 1.5%;
+    
+  }
+
+  .verEmpresas{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+  }
+ 
   input {
-    width:95%;
+    width:70%;
     height: 45%;
     font-size: 20px;
     padding-left: 1%;

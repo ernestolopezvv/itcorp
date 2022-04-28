@@ -2,24 +2,25 @@ import React, { useState } from "react";
 import Axios from 'axios'
 import {useNavigate} from "react-router-dom";
 import "./App.css";
-import App from "./Login";
+import App from "./login";
 
-const register = () => {
-    Axios.post('http://localhost3001/registro', {
-        usuario: usuarioReg,
-        contrasena: contrasenaReg,
-        rol: rolReg
-    }).then((response) => {
-        console.log(response);
-    });
-}
 
-function app(){
+function Registro(){
 
     const [usuarioReg, setUsuarioReg] = useState("");
     const [contrasenaReg, setContrasenaReg] = useState("");
     const [rolReg, setRolReg] = useState("");
 
+    const register = () => {
+        Axios.post('http://localhost3001/RegUsuario', {
+            usuario: usuarioReg, 
+            contrasena: 
+            contrasenaReg, 
+            rol: rolReg
+        }).then((response)=> {
+            console.log(response);
+        });
+    };
 
    return (
     <div className="App">
@@ -45,4 +46,4 @@ function app(){
    ); 
 }
 
-export default App;
+export default Registro;

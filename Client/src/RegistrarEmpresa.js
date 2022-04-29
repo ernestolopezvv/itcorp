@@ -6,14 +6,21 @@ function RegistrarEmpresa () {
   const history = useNavigate();
     const[Nombre, setNombre] = useState("");
 
+    const [listaEmpresas, setListaEmpresas] = useState([]);
+
     const registrar = () => {
-      
-      
+     
       Axios.post('http://localhost:3001/crear-empresa', {Nombre: Nombre}).then(() =>{
-        console.log("Listo");
+        setListaEmpresas([...listaEmpresas, {Nombre: Nombre}]);
       });
     };
 
+    const getEmpresas = () => {
+      Axios.get('http://localhost:3001/empresas').then((response) =>{
+        setListaEmpresas(response.data);
+
+      });
+    }
   
     return(
         <div className="main">
@@ -21,14 +28,20 @@ function RegistrarEmpresa () {
             <div className = "centeredContainer">
               <button onClick={()=> history("/MenuAdmin")}>Regresar a Menú Admin</button>        
             </div>
-            <div className= "inputInformation">
+            <div className= "agregarEmpresa">
                 <label>Nombre de la empresa: </label> 
                 <input type="text" onChange={ (event) => {
                     setNombre(event.target.value);
                 }} />   
-            </div> 
-            <div className = "centeredContainer">
               <button onClick={registrar}>Agregar nueva empresa</button>        
+             
+            </div>
+            <div className="verEmpresas">
+                <button onClick={getEmpresas}> Ver empresas</button>
+                {listaEmpresas.map((val, key) =>{
+                  return <div className="empresa"> {val.Nombre} </div>
+                })}
+
             </div>
           </div>
     );

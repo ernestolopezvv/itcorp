@@ -5,13 +5,14 @@ import Axios from 'axios';
 function RegistrarEmpresa () {
   const history = useNavigate();
     const[Nombre, setNombre] = useState("");
+    const[Sucursal, setSucursal] = useState("");
 
     const [listaEmpresas, setListaEmpresas] = useState([]);
 
     const registrar = () => {
      
-      Axios.post('http://localhost:3001/crear-empresa', {Nombre: Nombre}).then(() =>{
-        setListaEmpresas([...listaEmpresas, {Nombre: Nombre}]);
+      Axios.post('http://localhost:3001/crear-empresa', {Nombre: Nombre, Sucursal: Sucursal}).then(() =>{
+        setListaEmpresas([...listaEmpresas, {Nombre: Nombre, Sucursal: Sucursal},]);
       });
     };
 
@@ -32,14 +33,20 @@ function RegistrarEmpresa () {
                 <label>Nombre de la empresa: </label> 
                 <input type="text" onChange={ (event) => {
                     setNombre(event.target.value);
-                }} />   
+                }} />
+
+                <label>Sucursal: </label> 
+                <input type="text" onChange={ (event) => {
+                    setSucursal(event.target.value);
+                }} />
+
               <button onClick={registrar}>Agregar nueva empresa</button>        
              
             </div>
             <div className="verEmpresas">
                 <button onClick={getEmpresas}> Ver empresas</button>
                 {listaEmpresas.map((val, key) =>{
-                  return <div className="empresa"> {val.Nombre} </div>
+                  return <div className="empresa"> {val.Nombre} {val.Sucursal}</div>
                 })}
 
             </div>

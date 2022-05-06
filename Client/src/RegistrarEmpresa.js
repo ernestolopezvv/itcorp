@@ -9,8 +9,10 @@ function RegistrarEmpresa () {
 
     const [listaEmpresas, setListaEmpresas] = useState([]);
 
+    const [listaEmpresas, setListaEmpresas] = useState([]);
+
     const registrar = () => {
-     
+
       Axios.post('http://localhost:3001/crear-empresa', {Nombre: Nombre, Sucursal: Sucursal}).then(() =>{
         setListaEmpresas([...listaEmpresas, {Nombre: Nombre, Sucursal: Sucursal},]);
       });

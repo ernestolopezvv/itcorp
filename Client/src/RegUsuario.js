@@ -7,16 +7,15 @@ import App from "./login";
 
 function Registro(){
 
-    const [usuarioReg, setUsuarioReg] = useState("");
-    const [contrasenaReg, setContrasenaReg] = useState("");
-    const [rolReg, setRolReg] = useState("");
+    const [Correo, setCorreo] = useState("");
+    const [Contrasena, setContrasena] = useState("");
+    const [Rol, setRol] = useState("");
 
     const register = () => {
-        Axios.post('http://localhost3001/RegUsuario', {
-            usuario: usuarioReg, 
-            contrasena: 
-            contrasenaReg, 
-            rol: rolReg
+        Axios.post('http://localhost:3001/Registro', {
+            Correo: Correo, 
+            Contrasena: Contrasena, 
+            Rol: Rol
         }).then((response)=> {
             console.log(response);
         });
@@ -28,18 +27,18 @@ function Registro(){
             <h1>Crear Cuenta</h1>
             <label>email</label>
             <input type="text" 
-                onChange={(e) => 
-                {setUsuarioReg(e.target.value);}}
+                onChange={(event) => 
+                {setCorreo(Event.target.value);}}
                 />
             <label>Contrasena</label>
             <input type="text" 
-                onChange={(e) => 
-                {setContrasenaReg(e.target.value);}}
+                onChange={(event) => 
+                {setContrasena(Event.target.value);}}
                 />
             <label>Rol</label>
             <input type="text"  
-                onChange={(e) => 
-                {setRolReg(e.target.value);}}/>
+                onChange={(event) => 
+                {setRol(Event.target.value);}}/>
             <button onClick={register}>registrarte </button>
         </div>
     </div>

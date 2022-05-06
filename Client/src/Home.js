@@ -12,7 +12,7 @@ function Home() {
         <div className = "titulo"></div>
             <div className = "centered-container">
               <button onClick={()=> history("/MenuAdmin")}>Login</button>
-              <button onClick={()=> history("./RegUsuario")}>Solicitar Registro</button>
+              <button onClick={()=> history("./Registro")}>Solicitar Registro</button>
               <br></br><br></br>
             </div>
             <div className = "main__text">

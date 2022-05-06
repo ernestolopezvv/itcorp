@@ -45,10 +45,11 @@ function App() {
               <Routes>
               <Route exact path="/" element={<Home />}/>
               <Route path="/MenuAdmin" element={<MenuAdmin />}/>
+              <Route path="/Registro" element={<Registro />}/>
               <Route path="/SeleccionarEmpresa" element={<SeleccionarEmpresa />}/>
               <Route path="/SubirReporte" element={<SubirReporte />}/>
               <Route path="/RegistrarEmpresa" element={<RegistrarEmpresa />}/>
-              <Route path="/RegUsuario" element={<Registro />}/>
+              
 
               {/*<idTipoCuentaContext.Provider value = {{idTipoCuenta, setIdTipoCuenta}} >
               <idContext.Provider value = {{id, setId}} >

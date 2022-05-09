@@ -11,7 +11,7 @@ function Home() {
       <div className="main">
         <div className = "titulo"></div>
             <div className = "centered-container">
-              <button onClick={()=> history("/MenuAdmin")}>Login</button>
+              <button onClick={()=> history("./Login")}>Login</button>
               <button onClick={()=> history("./Registro")}>Solicitar Registro</button>
               <br></br><br></br>
             </div>

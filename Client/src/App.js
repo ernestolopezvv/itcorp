@@ -9,6 +9,7 @@ import SeleccionarEmpresa from './SeleccionarEmpresa';
 import SubirReporte from './SubirReporte';
 import RegistrarEmpresa from "./RegistrarEmpresa";
 import Registro from './RegUsuario';
+import Login from "./Login";
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
               <Route path="/SeleccionarEmpresa" element={<SeleccionarEmpresa />}/>
               <Route path="/SubirReporte" element={<SubirReporte />}/>
               <Route path="/RegistrarEmpresa" element={<RegistrarEmpresa />}/>
+              <Route path="/Login" element={<Login />}/>
               
 
               {/*<idTipoCuentaContext.Provider value = {{idTipoCuenta, setIdTipoCuenta}} >

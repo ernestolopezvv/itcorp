@@ -1,9 +1,7 @@
-// Archivo de menú de cliente (sólo para propósitos de presentación)
-
 import React, { useContext } from "react";
 import {useNavigate} from "react-router-dom";
 
-function MenuAdmin () {
+function Menu () {
   const history = useNavigate();
 
 
@@ -21,4 +19,4 @@ function MenuAdmin () {
     );
 } 
 
-export default MenuAdmin;
+export default Menu;

@@ -50,6 +50,8 @@ const Login = () => {
         setUser("");
         setPwd("");
         navigate(from, {replace: true});
+        window.location.href="/menu";
+        
 
     } catch (err) {
         if(!err?.response.status) {

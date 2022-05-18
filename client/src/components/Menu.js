@@ -1,9 +1,7 @@
-// Archivo de menú de cliente (sólo para propósitos de presentación)
-
 import React, { useContext } from "react";
 import {useNavigate} from "react-router-dom";
 
-function MenuAdmin () {
+function Menu () {
   const history = useNavigate();
 
 
@@ -16,9 +14,10 @@ function MenuAdmin () {
               <button className="button">Generar Reporte</button>
               <button className="button">Administrar usuarios</button>
               <button className="button"onClick={()=> history("/RegistrarEmpresa")}>Agregar Empresa</button>
+              <button className="button"onClick={()=> history("/register")}>Registrar Usuario</button>
             </div>
           </div>
     );
 } 
 
-export default MenuAdmin;
+export default Menu;

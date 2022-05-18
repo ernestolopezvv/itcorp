@@ -1,88 +1,52 @@
-import React, { useEffect, useState } from "react";
-import {Route, Routes, BrowserRouter, NavLink} from "react-router-dom";
-import Axios from "axios";
-import './index.css';
-import FlexLogo from './images/FLEXBPO.jfif';
-import Home from './Home';
-import MenuAdmin from './MenuAdmin';
-import SeleccionarEmpresa from './SeleccionarEmpresa';
-import SubirReporte from './SubirReporte';
-import RegistrarEmpresa from "./RegistrarEmpresa";
+import Register from './components/Register';
+import Home from './components/Home';
+import Login from './components/Login';
+import Menu from './components/Menu';
+import RegistrarEmpresa from './components/RegistrarEmpresa';
+import SeleccionarEmpresa from './components/SeleccionarEmpresa';
+import SubirReporte from './components/SubirReporte';
+import Layout from './components/Layout';
+import Missing from './components/Missing';
+import Unauthorized from './components/Unauthorized';
+import RequireAuth from './components/RequireAuth';
+import { Routes, Route } from 'react-router-dom';
 
+
+
+
+
+const ROLES = {
+  "User"  : 2001,
+  "Admin" : 5150
+}
 
 function App() {
-
-  // Axios.defaults.withCredentials = true;
-  
-  // useEffect(()=> {
-  //   Axios.get("http://localhost:3001/login").then((response) => {
-  //     if (response.data.loggedIn){
-  //       // setLoginStatus(response.data.user[0].Usuario);
-  //       // setId(response.data.user[0].idCuenta);
-  //       // setIdTipoCuenta(response.data.user[0].idTipoCuenta);
-  //     }
-  //   });
-  // }, []);
-
   return (
-    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Layout />} >
 
-      <div className="content">
-        <div className="header">
-          <NavLink to='/'>
-            <img className="logo" src={FlexLogo} alt="No se pudo cargar el logo"/> 
-            </NavLink>
-            <div className ="coronanalysTitle">Financh</div>
-        </div>
+        {/* public routes */}
+        <Route path="home" element={<Home/>} />
+        <Route path="login" element={<Login/>} />
+        <Route path="menu" element={<Menu/>} />
+        <Route path="registrarEmpresa" element={<RegistrarEmpresa/>} />
+        <Route path="seleccionarEmpresa" element={<SeleccionarEmpresa/>} />
+        <Route path="subirReporte" element={<SubirReporte/>} />
+        
+        <Route path="unauthorized" element={<Unauthorized/>} />
 
+        {/* protected routes */}
+        <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />} >
+          <Route path="register" element={<Register/>} />
+        </Route>
+        
 
-        <article className="main">
-          {/* {loginStatus && <h3>Bienvenido {loginStatus} </h3>}
-          <LoginContext.Provider value={{ loginStatus, setLoginStatus }} > */}
-            
-            <div className="conexiones">
-              <Routes>
-              <Route exact path="/" element={<Home />}/>
-              <Route path="/MenuAdmin" element={<MenuAdmin />}/>
-              <Route path="/SeleccionarEmpresa" element={<SeleccionarEmpresa />}/>
-              <Route path="/SubirReporte" element={<SubirReporte />}/>
-              <Route path="/RegistrarEmpresa" element={<RegistrarEmpresa />}/>
-
-              {/*<idTipoCuentaContext.Provider value = {{idTipoCuenta, setIdTipoCuenta}} >
-              <idContext.Provider value = {{id, setId}} >
-                <Route path="/login" component={Login}/>
-                <Route path="/registro" component={Registro}/>
-
-                <Route path="/menu_usuario" component={MenuUsuario}/>
-                <Route path="/menu_cliente" component={MenuCliente}/>
-                <Route path="/menu_admin" component={MenuAdmin}/>
-                
-                <Route path="/datos_personales" component={DatosPersonales}/> 
-                <Route path="/encuesta" component={Encuesta}/>
-                
-                <Route path="/datos" component={Datos}/>
-                <Route path="/cuentas_admin" component={CuentasAdmin}/> 
-              </ idContext.Provider>
-              </ idTipoCuentaContext.Provider> */}
-
-              </Routes>
-            </div>
-
-          {/* </ LoginContext.Provider> */}
-        </article>
-
-        <footer className="footer">
-          <div>Aviso de privacidad</div>
-          <p>
-            La oficina IT. Corp...
-          </p>
-        </footer>
-
-      </div> 
-
-    </BrowserRouter>
-
+        {/* catch all */}
+        <Route path="*" element={<Missing/>} />
+        
+      </Route>
+    </Routes>
   );
-};
+}
 
 export default App;

@@ -11,7 +11,7 @@ const Login = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/menu";
 
 
   const userRef = useRef();
@@ -50,7 +50,7 @@ const Login = () => {
         setUser("");
         setPwd("");
         navigate(from, {replace: true});
-        window.location.href="/menu";
+    
         
 
     } catch (err) {

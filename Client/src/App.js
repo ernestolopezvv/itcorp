@@ -16,8 +16,8 @@ import { Routes, Route } from 'react-router-dom';
 
 
 const ROLES = {
-  "User"  : 2001,
-  "Admin" : 5150
+  "User": 2001,
+  "Admin": 5150
 }
 
 function App() {
@@ -26,24 +26,24 @@ function App() {
       <Route path="/" element={<Layout />} >
 
         {/* public routes */}
-        <Route path="home" element={<Home/>} />
-        <Route path="login" element={<Login/>} />
-        <Route path="menu" element={<Menu/>} />
-        <Route path="registrarEmpresa" element={<RegistrarEmpresa/>} />
-        <Route path="seleccionarEmpresa" element={<SeleccionarEmpresa/>} />
-        <Route path="subirReporte" element={<SubirReporte/>} />
-        
-        <Route path="unauthorized" element={<Unauthorized/>} />
+        <Route path="home" element={<Home />} />
+        <Route path="login" element={<Login />} />
+        <Route path="unauthorized" element={<Unauthorized />} />
 
         {/* protected routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />} >
-          <Route path="register" element={<Register/>} />
+          <Route path="register" element={<Register />} />
         </Route>
-        
+        <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />} >
+          <Route path="menu" element={<Menu />} />
+          <Route path="registrarEmpresa" element={<RegistrarEmpresa />} />
+          <Route path="seleccionarEmpresa" element={<SeleccionarEmpresa />} />
+          <Route path="subirReporte" element={<SubirReporte />} />
+        </Route>
 
         {/* catch all */}
-        <Route path="*" element={<Missing/>} />
-        
+        <Route path="*" element={<Missing />} />
+
       </Route>
     </Routes>
   );

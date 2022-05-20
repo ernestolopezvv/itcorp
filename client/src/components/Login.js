@@ -7,7 +7,9 @@ const LOGIN_URL = '/auth';
 
 
 const Login = () => {
+  
   const { setAuth } = useAuth();
+ 
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -16,7 +18,8 @@ const Login = () => {
 
   const userRef = useRef();
   const errRef = useRef();
-
+  
+  
   const [user, setUser] = useState('');
   const [pwd, setPwd] = useState('');
   const [errMsg, setErrMsg] = useState('');
@@ -41,11 +44,14 @@ const Login = () => {
           withCredentials: true
         }
         );
-        console.log(JSON.stringify(response?.data));
-        //console.log(JSON.stringify(response));
+         
+        
+      
         const accessToken = response?.data?.accessToken;
         const roles = response?.data?.roles;
-        setAuth({user, pwd, roles, accessToken });
+        const id = response?.data?.id;
+        
+        setAuth({id, user, pwd, roles, accessToken });
 
         setUser("");
         setPwd("");

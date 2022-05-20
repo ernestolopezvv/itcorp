@@ -7,6 +7,7 @@ const RequireAuth = ({ allowedRoles }) => {
     const location = useLocation();
     const autorizedRole = auth?.roles;
     console.log(auth);
+
   
 
     return (

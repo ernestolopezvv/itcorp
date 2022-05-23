@@ -1,4 +1,4 @@
-name: docker-itcorp
+name: itcorp
  
 on:
   push:

@@ -2,7 +2,7 @@ FROM node
 
 WORKDIR app
 
-COPY package*.json ./
+COPY --chown=node:node ./package*.json ./
 
 RUN npm install
 

@@ -1,6 +1,6 @@
 FROM node
 
-WORKDIR /client
+WORKDIR /Client
 
 COPY package*.json ./
 

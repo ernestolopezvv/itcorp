@@ -1,13 +1,11 @@
-FROM node
+FROM node:9-slim
 
-WORKDIR /app
+WORKDIR /Client/src/app
 
-COPY ./package*.json ./
+COPY package*.json ./
 
 RUN npm install
 
 COPY . .
 
-EXPOSE 3000
-
-CMD ["npm", "run" "start"]
+CMD ["npm", "start"]

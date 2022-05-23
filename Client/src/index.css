@@ -112,3 +112,15 @@ button {
 .line {
     display: inline-block;
 }
+
+.Header, .Footer {
+
+    width: 100%;
+    background-color: #ba7e33;
+    color: whitesmoke;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}

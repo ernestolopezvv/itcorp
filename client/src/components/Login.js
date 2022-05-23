@@ -106,7 +106,9 @@ const Login = () => {
                   ¿No tienes cuenta?<br/>
                   <span className="line">
                     {/*put router link here*/}
-                    <a href="#">Registrarse</a>
+                    <a>Solicita un usuario al administrador</a>
+                    <a>admin@financh.com</a>
+
                   </span>
                 </p>
               

@@ -1,11 +1,22 @@
-import React, { useContext } from "react";
+import { faHatCowboySide } from "@fortawesome/free-solid-svg-icons";
+import React, { useContext, useState, useEffect } from "react";
 import {useNavigate} from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import AdminButton from "./AdminButton";
 
+
+const ROLES = {
+  "User": 2001,
+  "Admin": 5150
+}
 
 function Menu () {
   const history = useNavigate();
-  
+  const userInfo = useAuth();
+  const userRole = userInfo.auth.roles;
+
+
+
 
     return(
         <div className="main">
@@ -15,9 +26,9 @@ function Menu () {
               <button onClick={()=> history("/home")}>Regresar a Home</button>
               <button className="button"onClick={()=> history("/SeleccionarEmpresa")}>Registrar Información</button>
               <button className="button">Generar Reporte</button>
-              <button className="button">Administrar usuarios</button>
-              <button className="button"onClick={()=> history("/RegistrarEmpresa")}>Agregar Empresa</button>
-              <button className="button"onClick={()=> history("/register")}>Registrar Usuario</button>
+              {userRole === ROLES.Admin ? <AdminButton/> : null}
+             
+              
             </div>
           </div>
     );

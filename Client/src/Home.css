@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+:root {
+  --primary-white: #fff;
+  --primary-orange: #f9ab00;
+  --primary-dark: rgb(255, 255, 255, 0);
+  --primary-red: #ef4035;
+  --primary-hover-red: #f33501;
+}
+
+body {
+  font-family: "Roboto Condesed", sans-serif;
+}
+
+
+
+.home-warper {
+    position: relative;
+    background: url(wall-and-laptop-background.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+  }
+  
+  .main-info{
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    justify-content:  center;
+    align-items: center;
+    text-align: center;
+    font-family: "Roboto Condesed", sans-serif;
+  }
+  
+  .main-info h1 {
+    color: var(--primary-orange)
+  }
+  
+  
+  /**** TYPED TEXT *****/
+  
+  .typed-text {
+    font-size: 2rem;
+    color: var(--primary-white)
+  
+  }
+  
+  @media(max-width: 768px) {
+    .main-info h1 {
+      font-size: 1.7rem !important;
+    }
+  
+    .typed-text {
+      font-size: 1.3rem !important;
+  
+    }
+  
+  }
+  
+  
+  /**** HEADER MAIN OFFER BUTTON *****/
+  
+  .btn-main-offer {
+    border: 1px solid var(--primary-red);
+    text-transform: uppercase;
+    padding: 0.625rem 0.75rem 0.75rem 0.75rem;
+    color: var(--primary-white);
+    margin-top: 2rem  ;
+  }
+  
+  .btn-main-offer:hover {
+    text-decoration: none;
+    background-color: var(--primary-hover-red);
+    color:var(--primary-white);
+    transition: .2s ea;
+  }
+  
+  

@@ -25,9 +25,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />} >
+        <Route index element={ <Home />} />
 
         {/* public routes */}
-        <Route path="home" element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="unauthorized" element={<Unauthorized />} />
 

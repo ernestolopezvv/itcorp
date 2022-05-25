@@ -1,41 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+:root {
+    --primary-white: #fff;
+    --primary-orange: #f9ab00;
+    --primary-dark: rgb(255, 255, 255, 0);
+    --primary-red: #ef4035;
+    --primary-hover-red: #f33501;
+  }
 
-html {
-    font-family: 'Nunito', sans-serif;
-    font-size: 22px;
-    color: #fff;
-}
+.login {
 
-body {
-    min-height: 100vh;
-    background-color: rgba(255, 131, 30, 0.917);
-}
-
-.App {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; 
-  padding: 1rem 0.5rem;
-}
-
-section {
-    width: 100%;
-    max-width: 420px;
-    min-height: 400px;
-    display: flex;
+    
+    position: absolute;
+    top: 7rem;
+    left: 0rem;
+    right: 0rem;
+    bottom: 0;
     flex-direction: column;
-    justify-content: flex-start;
-    padding: 1rem;
+    justify-content:  center;
+    align-items: center;
+    text-align: center;
+    font-family: "Roboto Condesed", sans-serif;
+    display: flex;
     background-color: rgba(0,0,0,0.4);
+    color: var(--primary-orange)
+
 }
+
+.login h1 {
+    color: var(--primary-orange)
+  }
 
 form {
     display: flex;
@@ -43,6 +36,8 @@ form {
     justify-content: space-evenly;
     flex-grow: 1;
     padding-bottom: 1rem;
+    
+    
 }
 
 a, a:visited {
@@ -111,16 +106,4 @@ button {
 
 .line {
     display: inline-block;
-}
-
-.Header, .Footer {
-
-    width: 100%;
-    background-color: #ba7e33;
-    color: whitesmoke;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
 }

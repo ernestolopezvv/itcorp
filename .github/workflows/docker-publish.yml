@@ -19,12 +19,9 @@ jobs:
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_ACCESS_TOKEN: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
-        run: echo "DOCKERHUB_ACCESS_TOKEN" | docker login -u jloya0826 --password-stdin
+        run: echo ${{ secrets.DOCKERHUB_ACCESS_TOKEN }} | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
       - name: Run Docker Build
         run: docker build -t
-      - name: Stop containers
-        if: always()
-        run: docker-compose down
       - name: Tag Image
         run: docker image build -t jloya0826/jloya0826/itcorp:1.0.1 .
       - name: Docker push

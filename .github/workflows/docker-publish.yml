@@ -24,6 +24,6 @@ jobs:
           DOCKERHUB_ACCESS_TOKEN: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
         run: echo ${{ secrets.DOCKERHUB_ACCESS_TOKEN }} | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
       - name: Run Docker Build
-        run: docker build -t itcorp-docker .
+        run: docker build -t itcorp:1.0.1
       - name: Docker push
         run: docker push jloya0826/itcorp:1.0.1

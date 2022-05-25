@@ -1,4 +1,4 @@
-FROM node:9-slim
+FROM node:16-buster
 
 WORKDIR /Client/src/app
 
@@ -6,6 +6,8 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY src src
+
+COPY public public
 
 CMD ["npm", "start"]

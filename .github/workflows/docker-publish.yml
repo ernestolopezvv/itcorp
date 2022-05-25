@@ -23,7 +23,7 @@ jobs:
         run: |
           cd Client
           echo ${{ secrets.DOCKERHUB_ACCESS_TOKEN }} | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-          docker build -t itcorp:1.0.1 .
+          docker build -t jloya0826/itcorp:1.0.1 .
           docker push jloya0826/itcorp:1.0.1
           
       - name: Docker Login

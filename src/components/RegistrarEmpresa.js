@@ -1,24 +1,22 @@
-
 import {useNavigate} from "react-router-dom";
-import { useRef, useState, useEffect } from "react";
+import { useState } from "react";
 import axios from '../api/axios';
 
 const REGISTRAR_EMPRESA_URL = '/registrarEmpresa';
-
-
-
+ 
 const RegistrarEmpresa = () => {
 
     const history = useNavigate();
 
     const[Nombre, setNombre] = useState("");
+    const[Sucursal, setSucursal] = useState("");
     const [listaEmpresas, setListaEmpresas] = useState([]);
 
     const handleSubmit = async (e) => {
 
         try{
             const response = await axios.post(REGISTRAR_EMPRESA_URL,
-                JSON.stringify({Nombre, listaEmpresas}),
+                JSON.stringify({Nombre, Sucursal, listaEmpresas}),
                 {
                     headers: { 'Content-Type' : 'application/json' },
                     withCredentials : true
@@ -26,6 +24,17 @@ const RegistrarEmpresa = () => {
             );
 
             console.log(response.data);
+
+        } catch (err) {
+            console.log(err);
+
+        }
+    }
+
+    const getEmpresas = async (e) => {
+        try{
+            const response = await axios.get(REGISTRAR_EMPRESA_URL );
+            setListaEmpresas(response.data);
 
         } catch (err) {
             console.log(err);
@@ -43,14 +52,22 @@ const RegistrarEmpresa = () => {
                    <label>Nombre de la empresa: </label> 
                    <input type="text" onChange={ (event) => {
                        setNombre(event.target.value);
-                   }} />   
-                 <button onClick={handleSubmit}>Agregar nueva empresa</button>        
+                   }} title = "nombre"/>   
+
+                    <label>Sucursal: </label> 
+                    <input type="text" onChange={ (event) => {
+                        setSucursal(event.target.value);
+                    }}  title = "sucursal"/>
+
+                 <button onClick={handleSubmit} title = "registrar">Agregar nueva empresa</button>        
                
                </div>
                <div className="verEmpresas">
-                   <button onClick={handleSubmit}> Ver empresas</button>
+                   <button onClick={getEmpresas} title = "verEmpresas"> Ver empresas</button>
                    {listaEmpresas.map((val, key) =>{
-                     return <div className="empresa"> {val.Nombre} </div>
+
+                     return <div className="empresa">  {val.Nombre} {val.Sucursal} {val.Sucursal ? '' : ''}
+                      </div>
                    })}
   
                </div>
@@ -60,64 +77,5 @@ const RegistrarEmpresa = () => {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function RegistrarEmpresa () {
-//   const history = useNavigate();
-//     const[Nombre, setNombre] = useState("");
-
-//     const [listaEmpresas, setListaEmpresas] = useState([]);
-
-//     const registrar = () => {
-     
-//       Axios.post('http://localhost:3001/crear-empresa', {Nombre: Nombre}).then(() =>{
-//         setListaEmpresas([...listaEmpresas, {Nombre: Nombre}]);
-//       });
-//     };
-
-//     const getEmpresas = () => {
-//       Axios.get('http://localhost:3001/empresas').then((response) =>{
-//         setListaEmpresas(response.data);
-
-//       });
-//     }
-  
-//     return(
-//         <div className="main">
-//           <div className = "titulo"><h1>Agregar Nueva Empresa</h1></div>
-//             <div className = "centeredContainer">
-//               <button onClick={()=> history("/MenuAdmin")}>Regresar a Menú Admin</button>        
-//             </div>
-//             <div className= "agregarEmpresa">
-//                 <label>Nombre de la empresa: </label> 
-//                 <input type="text" onChange={ (event) => {
-//                     setNombre(event.target.value);
-//                 }} />   
-//               <button onClick={registrar}>Agregar nueva empresa</button>        
-             
-//             </div>
-//             <div className="verEmpresas">
-//                 <button onClick={getEmpresas}> Ver empresas</button>
-//                 {listaEmpresas.map((val, key) =>{
-//                   return <div className="empresa"> {val.Nombre} </div>
-//                 })}
-
-//             </div>
-//           </div>
-//     );
-// } 
 
 export default RegistrarEmpresa;

@@ -124,3 +124,10 @@ button {
     align-items: center;
 
 }
+
+.left{
+    text-align: left;
+}
+.right{
+    text-align: center;
+}

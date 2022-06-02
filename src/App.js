@@ -4,6 +4,8 @@ import Login from './components/Login';
 import Menu from './components/Menu';
 import RegistrarEmpresa from './components/RegistrarEmpresa';
 import SeleccionarEmpresa from './components/SeleccionarEmpresa';
+import BalanzaComprobacion from './components/BalanzaComprobacion';
+import MenuReporte from './components/MenuReporte';
 import SubirReporte from './components/SubirReporte';
 import Layout from './components/Layout';
 import Missing from './components/Missing';
@@ -40,6 +42,8 @@ function App() {
           <Route path="registrarEmpresa" element={<RegistrarEmpresa />} />
           <Route path="seleccionarEmpresa" element={<SeleccionarEmpresa />} />
           <Route path="subirReporte" element={<SubirReporte />} />
+          <Route path="balanzaComprobacion" element={<BalanzaComprobacion/>} />
+          <Route path = "menureporte" element={<MenuReporte/>} />
         </Route>
 
         {/* catch all */}

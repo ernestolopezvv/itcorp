@@ -4,6 +4,7 @@ import './App.css';
 import './Navbar.css';
 import './Home.css';
 import './Login.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import App from './App';
 import { AuthProvider } from './context/AuthProvider';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';

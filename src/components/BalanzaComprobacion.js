@@ -1,7 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import { useState, Component } from "react";
 import axios from '../api/axios';
-import '/Users/ernestolopezvv/Documents/itcorp/itcorp/src/Reporte.css';
+//import '/Users/ernestolopezvv/Documents/itcorp/itcorp/src/Reporte.css';
 
 const BALANZA_DE_COMPROBACION_URL = '/balanzaComprobacion';
 

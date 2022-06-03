@@ -25,7 +25,7 @@ function Menu () {
             <div className = "centeredContainer">
               <button onClick={()=> history("/home")}>Regresar a Home</button>
               <button className="button"onClick={()=> history("/SubirReporte")}>Registrar Información</button>
-              <button className="button" onClick={()=> history("/MenuReporte")}> Generar Reporte</button>
+              <button className="button">Generar Reporte</button>
               {userRole === ROLES.Admin ? <AdminButton/> : null}
              
               

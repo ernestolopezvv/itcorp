@@ -23,7 +23,6 @@ function Menu () {
           <div className = "titulo"><h1>Menu Principal</h1></div>
           
             <div className = "centeredContainer">
-              <button onClick={()=> history("/home")}>Regresar a Home</button>
               <button className="button"onClick={()=> history("/SubirReporte")}>Registrar Información</button>
               <button className="button" onClick={()=> history("/MenuReporte")}> Generar Reporte</button>
               {userRole === ROLES.Admin ? <AdminButton/> : null}

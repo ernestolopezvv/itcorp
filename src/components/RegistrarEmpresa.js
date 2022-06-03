@@ -46,7 +46,7 @@ const RegistrarEmpresa = () => {
         <div className="main">
          <div className = "titulo"><h1>Agregar Nueva Empresa</h1></div>
           <div className = "centeredContainer">
-                <button onClick={()=> history("/menu")}>Regresar a Menú Admin</button>        
+                <button onClick={()=> history("/menu")}>Regresar a Menú Principal</button>        
            </div>
            <div className= "agregarEmpresa">
                    <label>Nombre de la empresa: </label> 

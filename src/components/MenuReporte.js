@@ -9,10 +9,10 @@ function MenuReporte () {
         <div className="mainReportes">
           <div className = "titulo"><h1>Seleccionar reporte</h1></div>
             <div className = "centeredContainer">
-              <button onClick={()=> history("/Menu")}>Regresar a Home</button>
+              <button onClick={()=> history("/Menu")}>Regresar a Menu Principal</button>
               <button className="button"onClick={()=> history("/BalanceGeneral")}>Balance General</button>
               <button className="button"onClick={()=> history("/EstadoResultados")}>Estado de Resultados</button>
-              <button className="button"onClick={()=> history("/BalanzaComprobacion")}>Balanza ComprobaciÃ³n</button>
+              <button className="button"onClick={()=> history("/BalanzaComprobacion")}>Balanza Comprobacion</button>
             </div>
           </div>
     );

@@ -23,18 +23,6 @@ const Navbar = () => {
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
-                        <li className="nav-item active">
-                            <a className="nav-link" href="#">Titulo A</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Titulo B</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Titulo C</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Contacto</a>
-                        </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">{sessionInfo.auth.user}</a>
                         </li>

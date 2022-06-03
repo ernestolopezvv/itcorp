@@ -34,7 +34,7 @@ const EstadoResultados = () => {
     <div className="main">
           <div className = "titulo"><h1>Ver Estado de Resultados</h1></div>
           <div className = "centeredContainer">
-                <button onClick={()=> history("/menu")}>Regresar a Menú Admin</button>
+                <button onClick={()=> history("/MenuReporte")}>Regresar a Menú Reporte</button>
           </div>
 
           <div className="Table">

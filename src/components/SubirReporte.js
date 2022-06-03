@@ -166,6 +166,7 @@ function SubirReporte() {
   return (
     <div className="main">
       <div className="titulo"><h1>Subir Reporte</h1></div>
+      <button onClick={()=> history("/menu")}>Regresar a Menú Principal</button>
       <h3> Seleccionar Empresa</h3>
       <Select defaultInputValue={selectedOption}
         onChange={handleOnChange}

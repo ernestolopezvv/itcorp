@@ -12,6 +12,7 @@ import RequireAuth from './components/RequireAuth';
 import BalanzaComprobacion from './components/BalanzaComprobacion';
 import MenuReporte from './components/MenuReporte';
 import EstadoResultados from './components/EstadoResultados';
+import BalanceGeneral from './components/BalanceGeneral';
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -46,6 +47,7 @@ function App() {
           <Route path="balanzaComprobacion" element={<BalanzaComprobacion/>} />
           <Route path = "menureporte" element={<MenuReporte/>} />
           <Route path="EstadoResultados" element={<EstadoResultados/>} />
+          <Route path="balancegeneral" element={ <BalanceGeneral/>}/>
         </Route>
 
         {/* catch all */}

@@ -9,6 +9,9 @@ import Layout from './components/Layout';
 import Missing from './components/Missing';
 import Unauthorized from './components/Unauthorized';
 import RequireAuth from './components/RequireAuth';
+import BalanzaComprobacion from './components/BalanzaComprobacion';
+import BalanceGeneral from './components/BalanceGeneral';
+import MenuReporte from './components/MenuReporte';
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -40,6 +43,9 @@ function App() {
           <Route path="registrarEmpresa" element={<RegistrarEmpresa />} />
           <Route path="seleccionarEmpresa" element={<SeleccionarEmpresa />} />
           <Route path="subirReporte" element={<SubirReporte />} />
+          <Route path="balanzaComprobacion" element={<BalanzaComprobacion/>} />
+          <Route path="balancegeneral" element={ <BalanceGeneral/>}/>
+          <Route path = "menureporte" element={<MenuReporte/>} />
         </Route>
 
         {/* catch all */}

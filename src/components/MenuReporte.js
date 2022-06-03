@@ -11,7 +11,7 @@ function MenuReporte () {
             <div className = "centeredContainer">
               <button onClick={()=> history("/Menu")}>Regresar a Home</button>
               <button className="button"onClick={()=> history("/BalanceGeneral")}>Balance General</button>
-              <button className="button">Estado de Resultados</button>
+              <button className="button"onClick={()=> history("/EstadoResultados")}>Estado de Resultados</button>
               <button className="button"onClick={()=> history("/BalanzaComprobacion")}>Balanza ComprobaciÃ³n</button>
             </div>
           </div>

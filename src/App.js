@@ -11,6 +11,7 @@ import Unauthorized from './components/Unauthorized';
 import RequireAuth from './components/RequireAuth';
 import BalanzaComprobacion from './components/BalanzaComprobacion';
 import MenuReporte from './components/MenuReporte';
+import EstadoResultados from './components/EstadoResultados';
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -44,6 +45,7 @@ function App() {
           <Route path="subirReporte" element={<SubirReporte />} />
           <Route path="balanzaComprobacion" element={<BalanzaComprobacion/>} />
           <Route path = "menureporte" element={<MenuReporte/>} />
+          <Route path="EstadoResultados" element={<EstadoResultados/>} />
         </Route>
 
         {/* catch all */}

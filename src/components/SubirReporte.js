@@ -104,7 +104,7 @@ function SubirReporte() {
 
     console.log(selectedAccountFile);
     try {
-      const response = Axios.post("http://localhost:3001/subirCuentas", form, {
+      const response = Axios.post("https://itcorp-backend.herokuapp.com/subirCuentas", form, {
       });
     } catch (error) {
       console.log(error)
@@ -153,7 +153,7 @@ function SubirReporte() {
 
     console.log(selectedMoveFile);
     try {
-      const response = Axios.post("http://localhost:3001/subirMovimientos", form, {
+      const response = Axios.post("https://itcorp-backend.herokuapp.com/subirMovimientos", form, {
       });
     } catch (error) {
       console.log(error)

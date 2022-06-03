@@ -1,6 +1,8 @@
 import {useNavigate} from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import axios from '../api/axios';
+import '/Users/ernestolopezvv/Documents/itcorp/itcorp/src/Reporte.css';
+
 
 const ESTADO_RESULTDOS_URL = '/EstadoResultados';
 
@@ -11,7 +13,6 @@ const EstadoResultados = () => {
   const[listaEgresos, setListaEgresos] = useState([]);
 
   const colNames = [' ','Periodo', '%', 'Acomulado', '%'];
-
 
   const getData = async (e) => {
 
@@ -26,6 +27,7 @@ const EstadoResultados = () => {
 
       }
   }
+    
 
   return(
 
@@ -90,15 +92,18 @@ const EstadoResultados = () => {
                       </tr>
                  ))} </tbody>
 
+
           </table>
 
           )}
 
 
           </div>
+          
     </div>
-)
 
+
+)
 
 }
 

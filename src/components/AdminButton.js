@@ -7,6 +7,7 @@ const AdminButton = () => {
     <div>
         <button className="button"onClick={()=> history("/RegistrarEmpresa")}>Agregar Empresa</button>
         <button className="button"onClick={()=> history("/register")}>Registrar Usuario</button>
+        <button className="button"onClick={()=> history("/adminUsers")}>Administrar usuarios</button>
         <button className="button">Administrar usuarios</button>
     </div>
   )

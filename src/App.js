@@ -14,8 +14,12 @@ import MenuReporte from './components/MenuReporte';
 import EstadoResultados from './components/EstadoResultados';
 import BalanceGeneral from './components/BalanceGeneral';
 import { Routes, Route } from 'react-router-dom';
+import AdminUsers from './components/AdminUsers';
+import { useState, useEffect } from 'react';
 
-
+import axios from './api/axios';
+const USERS_URL = '/users';
+const COMPANIES_URL = '/companies';
 
 
 
@@ -26,6 +30,54 @@ const ROLES = {
 
 
 function App() {
+  const [users, setUsers] = useState([]);
+  const [companies, setCompanies] = useState([]);
+
+
+
+  useEffect(()=> {
+    const fetchUsers = async () => {
+      try{
+        const response = await axios.get(USERS_URL);
+        setUsers(response.data);
+
+      } catch (err){
+        if (err.response){
+
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        } else {
+          console.log(`Error: ${err.message}`);
+        }
+      }
+
+    }
+    fetchUsers();
+
+  },[])
+
+  useEffect(()=> {
+    const fetchCompanies = async () => {
+      try{
+        const response = await axios.get(COMPANIES_URL);
+        setCompanies(response.data);
+
+      } catch (err){
+        if (err.response){
+
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        } else {
+          console.log(`Error: ${err.message}`);
+        }
+      }
+
+    }
+    fetchCompanies();
+
+  },[])
   return (
     <Routes>
       <Route path="/" element={<Layout />} >
@@ -48,6 +100,7 @@ function App() {
           <Route path = "menureporte" element={<MenuReporte/>} />
           <Route path="EstadoResultados" element={<EstadoResultados/>} />
           <Route path="balancegeneral" element={ <BalanceGeneral/>}/>
+          <Route path="adminUsers" element={<AdminUsers titleA ="Seleccionar Usuarios" titleB={"Seleccionar Empresa"} users={users} companies = {companies} multiSelect/>} />
         </Route>
 
         {/* catch all */}
@@ -55,6 +108,7 @@ function App() {
 
       </Route>
     </Routes>
+    
   );
 }
 

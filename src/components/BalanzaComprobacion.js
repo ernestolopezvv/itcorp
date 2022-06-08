@@ -36,7 +36,7 @@ const BalanzaComprobacion = () => {
                   <div className = "titulo"><h1>Balanza de comprobación</h1></div>
                   <div className = "centeredContainer">
                         <button onClick={()=> history("/MenuReporte")}>Regresar a Menú Reporte</button>        
-                        <button onClick={createPDF}>Descargar en PDF</button>
+                        <button onClick={createPDF} >Descargar en PDF</button>
                   </div>
                   <button onClick={getData} title = "verCuentas"> Generar Balanza</button>
                   <div className="Table" id="Table">

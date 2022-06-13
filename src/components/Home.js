@@ -18,7 +18,7 @@ function Home() {
           backSpeed={60}
           loop
         />
-        <a href="/login" className="btn-main-offer"> Iniciar Sesión</a>
+        <a href="/inicio-sesion" className="btn-main-offer"> Iniciar Sesión</a>
       </div>
     </div>
 

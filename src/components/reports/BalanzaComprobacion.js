@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import { useState, Component } from "react";
-import axios from '../api/axios';
+import axios from '../../api/axios';
 //import '/Users/ernestolopezvv/Documents/itcorp/itcorp/src/Reporte.css';
 
 const BALANZA_DE_COMPROBACION_URL = '/balanzaComprobacion';
@@ -35,10 +35,10 @@ const BalanzaComprobacion = () => {
             <div className="main">
                   <div className = "titulo"><h1>Balanza de comprobación</h1></div>
                   <div className = "centeredContainer">
-                        <button onClick={()=> history("/MenuReporte")}>Regresar a Menú Reporte</button>        
-                        <button onClick={createPDF} >Descargar en PDF</button>
+                        <button onClick={()=> history("/reportes")}>Regresar a Menú Reporte</button>        
+                        <button onClick={getData} title = "verCuentas"> Generar Balanza de Comprobación</button>
+                        <button onClick={createPDF}>Descargar en PDF</button>
                   </div>
-                  <button onClick={getData} title = "verCuentas"> Generar Balanza</button>
                   <div className="Table" id="Table">
                  
                   

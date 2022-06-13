@@ -1,10 +1,10 @@
-import axios from '../api/axios';
+import axios from '../../api/axios';
 import Select from 'react-select';
-import Axios from '../api/axios';
+import Axios from '../../api/axios';
 import React, { useState, useEffect } from "react";
 // import FormData from "form-data";
 import { useNavigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const USER_COMPANIES_URL = '/companies/accessCompanies';
 
@@ -168,13 +168,13 @@ function SubirReporte() {
       <div className="titulo"><h1>Subir Reporte</h1></div>
       <button onClick={()=> history("/menu")}>Regresar a Menú Principal</button>
       <h3> Seleccionar Empresa</h3>
+      <div className="centeredContainerSelect">
       <Select defaultInputValue={selectedOption}
         onChange={handleOnChange}
         options={companies}
         getOptionLabel={option => option.Nombre}
-
-
       />
+      </div>
 
       <div className="centeredContainer">
 

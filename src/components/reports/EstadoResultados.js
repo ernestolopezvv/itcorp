@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
-import axios from '../api/axios';
+import axios from '../../api/axios';
 
 const ESTADO_RESULTDOS_URL = '/EstadoResultados';
 
@@ -30,17 +30,18 @@ const EstadoResultados = () => {
   return(
 
     <div className="main">
-          <div className = "titulo"><h1>Ver Estado de Resultados</h1></div>
+          <div className = "titulo"><h1>Estado de Resultados</h1></div>
           <div className = "centeredContainer">
-                <button onClick={()=> history("/menu")}>Regresar a MenÃº Admin</button>    
-                <button onClick={createPDF}>Descargar en PDF</button>    
+                <button onClick={()=> history("/reportes")}>Regresar a Menú de Reportes</button>    
+                <button onClick={getData} title = "verCuentas"> Generar Estado de Resultados</button>
+                <button onClick={createPDF} >Descargar en PDF</button>    
           </div>
-          <button onClick={getData} title = "verCuentas"> Generar Estado de Resultados</button>
+
           <div className="Table" id="Table">
          
-        
+
           {listaEgresos.length > 0 && (
-          <table className="table ">
+          <table className="table " >
                 <thead>
                 <tr>
                       {colNames.map((headerItem, uno) => (
@@ -104,28 +105,29 @@ const EstadoResultados = () => {
           </div>
     </div>
 )
-        function createPDF() {
-        var sTable = document.getElementById('Table').innerHTML;
 
-        var style = "<style>";
-        style = style + "table {width: 100%;font: 10px Calibri;}";
-        style = style + "table, th, td {border: solid 2px #DDD; border-collapse: collapse;";
-        style = style + "padding: 2px 3px;text-align: center;}";
-        style = style + ".left{text-align:left};.right{text-align:right};"
-        style = style + "</style>";
+function createPDF() {
+      var sTable = document.getElementById('Table').innerHTML;
 
-        // CREATE A WINDOW OBJECT.
-        var win = window.open('', '', 'height=700,width=700');
+      var style = "<style>";
+      style = style + "table {width: 100%;font: 10px Calibri;}";
+      style = style + "table, th, td {border: solid 2px #DDD; border-collapse: collapse;";
+      style = style + "padding: 2px 3px;text-align: center;}";
+      style = style + ".left{text-align:left};.right{text-align:right};"
+      style = style + "</style>";
 
-        win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
-        win.document.write('</head>');
-        win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
-        win.document.write('</body></html>');
+      // CREATE A WINDOW OBJECT.
+      var win = window.open('', '', 'height=700,width=700');
 
-        win.document.close(); 	// CLOSE THE CURRENT WINDOW.
+      win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
+      win.document.write('</head>');
+      win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
+      win.document.write('</body></html>');
 
-        win.print();    // PRINT THE CONTENTS.
-    }
+      win.document.close(); 	// CLOSE THE CURRENT WINDOW.
+
+      win.print();    // PRINT THE CONTENTS.
+  }
 
 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from '../api/axios';
+import axios from '../../api/axios';
 import Select from 'react-select';
-import ReadOnlyRow from './ReadOnlyRow';
+import ReadOnlyRow from '../support/ReadOnlyRow';
 
 const REGISTER_USER_COMPANY_URL = '/adminUsers';
 const RELATION_USER_COMPANY_URL = '/companies/relationUserCompanyData';

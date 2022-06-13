@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import { useState } from "react";
-import axios from '../api/axios';
+import axios from '../../api/axios';
 
 const REGISTRAR_EMPRESA_URL = '/registrarEmpresa';
  
@@ -46,7 +46,7 @@ const RegistrarEmpresa = () => {
         <div className="main">
          <div className = "titulo"><h1>Agregar Nueva Empresa</h1></div>
           <div className = "centeredContainer">
-                <button onClick={()=> history("/menu")}>Regresar a Menú Principal</button>        
+                <button onClick={()=> history("/administracion")}>Regresar a Menú Administración</button>        
            </div>
            <div className= "agregarEmpresa">
                    <label>Nombre de la empresa: </label> 

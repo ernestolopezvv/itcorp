@@ -1,20 +1,36 @@
-import Register from './components/Register';
+//Menus
+import Menu from './components/menus/Menu';
+import MenuReporte from './components/menus/MenuReporte';
+import MenuAdministracion from './components/menus/MenuAdministracion';
+
+
+//Admin
+import AdminUsers from './components/admin/AdminUsers';
+import Register from './components/admin/Register';
+import RegistrarEmpresa from './components/admin/RegistrarEmpresa';
+
+
+//Design
+import Layout from './components/design/Layout';
+
+
+//Reports
+import SubirReporte from './components/reports/SubirReporte';
+import BalanzaComprobacion from './components/reports/BalanzaComprobacion';
+import EstadoResultados from './components/reports/EstadoResultados';
+import BalanceGeneral from './components/reports/BalanceGeneral';
+
+//Support
+import Missing from './components/support/Missing';
+import Unauthorized from './components/support/Unauthorized';
+import RequireAuth from './components/support/RequireAuth';
+
+//Base
 import Home from './components/Home';
 import Login from './components/Login';
-import Menu from './components/Menu';
-import RegistrarEmpresa from './components/RegistrarEmpresa';
-import SeleccionarEmpresa from './components/SeleccionarEmpresa';
-import SubirReporte from './components/SubirReporte';
-import Layout from './components/Layout';
-import Missing from './components/Missing';
-import Unauthorized from './components/Unauthorized';
-import RequireAuth from './components/RequireAuth';
-import BalanzaComprobacion from './components/BalanzaComprobacion';
-import MenuReporte from './components/MenuReporte';
-import EstadoResultados from './components/EstadoResultados';
-import BalanceGeneral from './components/BalanceGeneral';
+
+
 import { Routes, Route } from 'react-router-dom';
-import AdminUsers from './components/AdminUsers';
 import { useState, useEffect } from 'react';
 
 import axios from './api/axios';
@@ -84,23 +100,24 @@ function App() {
         <Route index element={ <Home />} />
 
         {/* public routes */}
-        <Route path="login" element={<Login />} />
-        <Route path="unauthorized" element={<Unauthorized />} />
+        <Route path="inicio-sesion" element={<Login />} />
+        <Route path="no-autorizado" element={<Unauthorized />} />
 
         {/* protected routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />} >
-          <Route path="register" element={<Register />} />
+          <Route path="administracion/usuarios" element={<Register />} />
         </Route>
         <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />} >
           <Route path="menu" element={<Menu />} />
-          <Route path="registrarEmpresa" element={<RegistrarEmpresa />} />
-          <Route path="seleccionarEmpresa" element={<SeleccionarEmpresa />} />
-          <Route path="subirReporte" element={<SubirReporte />} />
-          <Route path="balanzaComprobacion" element={<BalanzaComprobacion/>} />
-          <Route path = "menureporte" element={<MenuReporte/>} />
-          <Route path="EstadoResultados" element={<EstadoResultados/>} />
-          <Route path="balancegeneral" element={ <BalanceGeneral/>}/>
-          <Route path="adminUsers" element={<AdminUsers titleA ="Seleccionar Usuarios" titleB={"Seleccionar Empresa"} users={users} companies = {companies} multiSelect/>} />
+          <Route path="reportes" element={<MenuReporte/>} />
+          <Route path="reportes/insertar" element={<SubirReporte />} />
+          <Route path="reportes/balanza-de-comprobacion" element={<BalanzaComprobacion/>} />
+          <Route path="reportes/estado-de-resultados" element={<EstadoResultados/>} />
+          <Route path="reportes/balance-general" element={ <BalanceGeneral/>}/>
+
+          <Route path ="administracion" element={<MenuAdministracion/>} />
+          <Route path="administracion/empresas" element={<RegistrarEmpresa />} />
+          <Route path="administracion/usuarios-y-empresas" element={<AdminUsers titleA ="Seleccionar Usuarios" titleB={"Seleccionar Empresa"} users={users} companies = {companies} multiSelect/>} />
         </Route>
 
         {/* catch all */}

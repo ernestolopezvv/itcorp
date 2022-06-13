@@ -1,7 +1,7 @@
 import { faHatCowboySide } from "@fortawesome/free-solid-svg-icons";
 import React, { useContext, useState, useEffect } from "react";
 import {useNavigate} from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 import AdminButton from "./AdminButton";
 
 
@@ -23,8 +23,8 @@ function Menu () {
           <div className = "titulo"><h1>Menu Principal</h1></div>
           
             <div className = "centeredContainer">
-              <button className="button"onClick={()=> history("/SubirReporte")}>Registrar Información</button>
-              <button className="button" onClick={()=> history("/MenuReporte")}> Generar Reporte</button>
+              <button className="button"onClick={()=> history("/reportes/insertar")}>Registrar Información</button>
+              <button className="button" onClick={()=> history("/reportes")}> Generar Reporte</button>
               {userRole === ROLES.Admin ? <AdminButton/> : null}
              
               

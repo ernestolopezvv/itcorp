@@ -132,64 +132,60 @@ button {
     text-align: center;
 }  */
 
-.centeredContainer{
-    margin: auto;
-    padding: 0%;
-    width: 10%;
-    text-align: center;
+.centeredContainer {
+  margin: auto;
+  padding: 0%;
+  width: 10%;
+  text-align: center;
 }
 
-.centeredContainerSelect{
-    margin: auto;
-    padding: 1%;
-    width: 30%;
-    text-align: center;
+.centeredContainerSelect {
+  margin: auto;
+  padding: 1%;
+  width: 30%;
+  text-align: center;
 }
 
 button {
-    min-width: 22vmin;
-    min-height: 10vh;
-    display: inline-block;
-  
-    background-color: var(--primary-orange);
-    border-color: var(--primary-orange);
-    border-style: solid;
-    border-width: 4px;
-    color: var(--primary-whitesmoke);
-    /* margin: 3vh 0 0 1vh; */
-    transition: all .3s linear;
-    transition-property: all;
-    transition-duration: .3s;
-    /* text-align: center; */
-  
-    /* overflow-x: hidden; */
-    
+  min-width: 22vmin;
+  min-height: 10vh;
+  display: inline-block;
+
+  background-color: var(--primary-orange);
+  border-color: var(--primary-orange);
+  border-style: solid;
+  border-width: 4px;
+  color: var(--primary-whitesmoke);
+  /* margin: 3vh 0 0 1vh; */
+  transition: all 0.3s linear;
+  transition-property: all;
+  transition-duration: 0.3s;
+  /* text-align: center; */
+
+  /* overflow-x: hidden; */
 }
-  
-button:hover{
-    background-color: var(--primary-whitesmoke);
-    color: orange;
+
+button:hover {
+  background-color: var(--primary-whitesmoke);
+  color: orange;
 }
 
 button:disabled,
 button[disabled] {
+  background-color: #cccccc;
+  border-color: var(--primary-orange);
+  border-style: solid;
+  border-width: 4px;
+  color: var(--primary-whitesmoke);
+  margin: 3vh 0 0 1vh;
+  transition: all 0.3s linear;
+  transition-property: all;
+  transition-duration: 0.3s;
 
-  
-    background-color: #cccccc;
-    border-color: var(--primary-orange);
-    border-style: solid;
-    border-width: 4px;
-    color: var(--primary-whitesmoke);
-    margin: 3vh 0 0 1vh;
-    transition: all .3s linear;
-    transition-property: all;
-    transition-duration: .3s;
-  
-    /* overflow-x: hidden; */
-    
+  /* overflow-x: hidden; */
 }
 
-.titulo h1{
+.titulo h1 {
   font-size: 6vh;
   padding: 0;
   /* margin-left: 7vw; */
@@ -197,21 +193,21 @@ button[disabled] {
 }
 
 select {
-     /* A reset of styles, including removing the default dropdown arrow */
-    appearance: none;
-     /* Additional resets for further consistency */
-    background-color: transparent;
-    border: none;
-    padding: 0 1em 0 0;
-    margin: 0;
-    width: 100%;
-    font-family: inherit;
-    font-size: inherit;
-    cursor: inherit;
-    line-height: inherit;
-    outline: none;
-  }
+  /* A reset of styles, including removing the default dropdown arrow */
+  appearance: none;
+  /* Additional resets for further consistency */
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+}
 
-  select::-ms-expand {
-    display: none;
-  }
+select::-ms-expand {
+  display: none;
+}

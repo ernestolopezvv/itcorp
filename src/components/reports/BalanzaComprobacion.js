@@ -1,8 +1,11 @@
 import {useNavigate} from "react-router-dom";
-import { useState, Component } from "react";
+import { useState, Component, useEffect } from "react";
 import axios from '../../api/axios';
+import Select from 'react-select';
+import useAuth from "../../hooks/useAuth";
 //import '/Users/ernestolopezvv/Documents/itcorp/itcorp/src/Reporte.css';
 
+const USER_COMPANIES_URL = '/companies/accessCompanies';
 const BALANZA_DE_COMPROBACION_URL = '/balanzaComprobacion';
 
 
@@ -11,16 +14,35 @@ const BalanzaComprobacion = () => {
       const history = useNavigate();
 
       const[listCuentas, setListCuentas] = useState([]);
+      const [fechaInicio, setFechaInicio] = useState('');
+      const [fechaFinal, setFechaFinal] = useState('');
+      const sectionName = [' '];
+      const [fechaInicioComp, setFechaInicioComp] = useState('');
+      const [fechaFinalComp, setFechaFinalComp] = useState('');
 
       const colNames = ['Codigo','Nombre' , 'Saldos Iniciales', 'Cargo', 'Abono', 'Saldos Actuales'];
       const subNames = [' ', '  ', 'Deudor \xa0\xa0\xa0 Acreedor', ' ', ' ', 'Deudor \xa0\xa0\xa0 Acreedor'];
 
+      // Select Company
+      const [companies, setCompanies] = useState([]);
+      const [selectedOption, setSelectedOption] = useState("");
+
+      // Variables respecto a los ids de la sesión para su manejo dentro de las funciones
+      const userLoginInfo = useAuth();
+      const userInfo = userLoginInfo.auth;
+      const idEmpresa = selectedOption.ID_Empresa;
+
  
 
       const getData = async (e) => {
+            
+            const fechaI = fechaInicio
+            const fechaF = fechaFinal
+            
             try{
-                  const response = await axios.get(BALANZA_DE_COMPROBACION_URL);
-                        console.log(response.data);
+                  const response = await axios.post(BALANZA_DE_COMPROBACION_URL, {fechaI, fechaF, idEmpresa});
+                        console.log(fechaI);
+                        console.log(fechaF);
                         setListCuentas(response.data);
             
                     }
@@ -30,15 +52,69 @@ const BalanzaComprobacion = () => {
                     }
        }
 
+       useEffect(() => {
+            const fetchCompanies = async () => {
+              try {
+        
+                const response = await axios.post(USER_COMPANIES_URL, userInfo);
+                setCompanies(response.data);
+        
+              } catch (err) {
+                if (err.response) {
+        
+                  console.log(err.response.data);
+                  console.log(err.response.status);
+                  console.log(err.response.headers);
+                } else {
+                  console.log(`Error: ${err.message}`);
+                }
+              }
+        
+            }
+            fetchCompanies();
+        
+          }, [])
+        
+      const handleOnChange = Obj => {
+            setSelectedOption(Obj);
+        
+          }
+
+      const handleOnChangeFechaInicio = Obj => {
+            setFechaInicio(Obj.target.value);
+            setFechaInicioComp(true);
+        }
+    
+      const handleOnChangeFechaFinal = Obj => {
+            setFechaFinal(Obj.target.value);
+            setFechaFinalComp(true);
+        }
+
       return(
 
             <div className="main">
                   <div className = "titulo"><h1>Balanza de comprobación</h1></div>
                   <div className = "centeredContainer">
                         <button onClick={()=> history("/reportes")}>Regresar a Menú Reporte</button>        
-                        <button onClick={getData} title = "verCuentas"> Generar Balanza de Comprobación</button>
-                        <button onClick={createPDF}>Descargar en PDF</button>
+                        <button onClick={createPDF} >Descargar en PDF</button>
                   </div>
+
+                  <Select defaultInputValue={selectedOption}
+                        onChange={handleOnChange}
+                        options={companies}
+                        getOptionLabel={option => option.Nombre} />
+                  
+                  <div className="ag-theme-alpine" style={{ height: 400 }}>
+                  From : <input type="date" value={fechaInicio} onChange={handleOnChangeFechaInicio} />
+                  To : <input type="date" value={fechaFinal} onChange={handleOnChangeFechaFinal} />
+                  </div>
+                  
+                  <div className="Comprobacion">
+
+                  <button onClick={getData} 
+                        disabled={selectedOption === '' ? true : false
+                        || fechaInicioComp !== true
+                        || fechaFinalComp !== true}> Generar Balanza </button>
                   <div className="Table" id="Table">
                  
                   
@@ -120,6 +196,7 @@ const BalanzaComprobacion = () => {
                   </table>
                   
                   )}
+                  </div>
                   </div>
             </div>
 

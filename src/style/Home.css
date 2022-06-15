@@ -64,4 +64,24 @@
   transition: .2s ea;
 }
 
-  
+.ReporteBalance{
+  position:absolute;
+  top: 50%;
+  left: 20%;
+  right: 20%;
+}
+
+.ReporteResultados{
+  position:absolute;
+  top: 50%;
+  left: 20%;
+  right: 20%;
+}
+
+
+.Comprobacion{
+  position:absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+}

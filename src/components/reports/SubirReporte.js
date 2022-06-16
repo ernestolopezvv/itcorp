@@ -1,25 +1,22 @@
-import axios from '../../api/axios';
-import Select from 'react-select';
-import Axios from '../../api/axios';
+import axios from "../../api/axios";
+import Select from "react-select";
+import Axios from "../../api/axios";
 import React, { useState, useEffect } from "react";
 // import FormData from "form-data";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
-const USER_COMPANIES_URL = '/companies/accessCompanies';
-
+const USER_COMPANIES_URL = "/companies/accessCompanies";
 
 function SubirReporte() {
-
   // a local state to store the currently selected file.
   const [selectedAccountFile, setSelectedAccountFile] = React.useState(null);
   const [selectedMoveFile, setSelectedMoveFile] = React.useState(null);
 
   // Variable para verificar la extensión del archivo en caso de cambio antes de publicar
-  const [selectedAccountFileExt, setSelectedAccountFileExt] = React.useState(null);
+  const [selectedAccountFileExt, setSelectedAccountFileExt] =
+    React.useState(null);
   const [selectedMoveFileExt, setSelectedMoveFileExt] = React.useState(null);
-
-
 
   // Select Company
   const [companies, setCompanies] = useState([]);
@@ -33,18 +30,13 @@ function SubirReporte() {
   const idEmpresa = selectedOption.ID_Empresa;
   //console.log(`Id Usuario : ${idUsuario} Id Empresa ${idEmpresa}`);
 
-
-
   useEffect(() => {
     const fetchCompanies = async () => {
       try {
-
         const response = await axios.post(USER_COMPANIES_URL, userInfo);
         setCompanies(response.data);
-
       } catch (err) {
         if (err.response) {
-
           console.log(err.response.data);
           console.log(err.response.status);
           console.log(err.response.headers);
@@ -52,146 +44,177 @@ function SubirReporte() {
           console.log(`Error: ${err.message}`);
         }
       }
-
-    }
+    };
     fetchCompanies();
+  }, []);
 
-  }, [])
-
-  const handleOnChange = Obj => {
+  const handleOnChange = (Obj) => {
     setSelectedOption(Obj);
-
-  }
+  };
 
   // Cuentas
   const handleAccountFile = (event) => {
-
     var file = event.target.files[0];
     //Verificación de si se canceló la operación
-    if ( file === undefined)
-    {
+    if (file === undefined) {
       setSelectedAccountFileExt(false);
       alert("Por favor seleccione un archivo");
-    }
-    else
-    {
+    } else {
       var validExts = [".xlsx", ".csv"];
       var fileName = file.name;
-      fileName = fileName.substring(fileName.lastIndexOf('.'));
+      fileName = fileName.substring(fileName.lastIndexOf("."));
 
       // Verificación por si el archivo no coindice con las extensiones permitidas
-      if (validExts.indexOf(fileName) < 0) 
-      {
+      if (validExts.indexOf(fileName) < 0) {
         setSelectedAccountFileExt(false);
-        alert("El archivo seleccionado es inválido, inserte un archivo de tipo " + validExts.toString());
+        alert(
+          "El archivo seleccionado es inválido, inserte un archivo de tipo " +
+            validExts.toString()
+        );
       }
       // Operación exitosa en caso de que el archivo cumpla con las condiciones
-      else
-      {
+      else {
         setSelectedAccountFile(file);
         setSelectedAccountFileExt(true);
       }
     }
-  }
+  };
 
   const handleAccountSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     const form = new FormData();
     form.append("file", selectedAccountFile);
-    form.append('idUsuario', idUsuario);
-    form.append('idEmpresa', idEmpresa);
+    form.append("idUsuario", idUsuario);
+    form.append("idEmpresa", idEmpresa);
 
     console.log(selectedAccountFile);
     try {
-      const response = Axios.post("https://itcorp-backend.herokuapp.com/subirCuentas", form, {
-      });
+      const response = Axios.post(
+        "https://itcorp-backend.herokuapp.com/subirCuentas",
+        form,
+        {}
+      );
     } catch (error) {
-      console.log(error)
-    };
-  }
-
-
+      console.log(error);
+    }
+  };
 
   // Movimientos
   const handleMoveFile = (event) => {
-
     var file = event.target.files[0];
     //Verificación de si se canceló la operación
-    if ( file === undefined)
-    {
+    if (file === undefined) {
       setSelectedMoveFileExt(false);
       alert("Por favor seleccione un archivo");
-    }
-    else
-    {
+    } else {
       var validExts = [".xlsx", ".csv"];
       var fileName = file.name;
-      fileName = fileName.substring(fileName.lastIndexOf('.'));
+      fileName = fileName.substring(fileName.lastIndexOf("."));
 
       // Verificación por si el archivo no coindice con las extensiones permitidas
-      if (validExts.indexOf(fileName) < 0) 
-      {
+      if (validExts.indexOf(fileName) < 0) {
         setSelectedMoveFileExt(false);
-        alert("El archivo seleccionado es inválido, inserte un archivo de tipo " + validExts.toString());
+        alert(
+          "El archivo seleccionado es inválido, inserte un archivo de tipo " +
+            validExts.toString()
+        );
       }
       // Operación exitosa en caso de que el archivo cumpla con las condiciones
-      else
-      {
+      else {
         setSelectedMoveFile(file);
         setSelectedMoveFileExt(true);
       }
     }
-  }
+  };
 
   const handleMoveSubmit = (event) => {
-
-    event.preventDefault()
+    event.preventDefault();
     const form = new FormData();
     form.append("file", selectedMoveFile);
-    form.append('idEmpresa', idEmpresa);
+    form.append("idEmpresa", idEmpresa);
 
     console.log(selectedMoveFile);
     try {
-      const response = Axios.post("https://itcorp-backend.herokuapp.com/subirMovimientos", form, {
-      });
+      const response = Axios.post(
+        "https://itcorp-backend.herokuapp.com/subirMovimientos",
+        form,
+        {}
+      );
     } catch (error) {
-      console.log(error)
-    };
-  }
-
+      console.log(error);
+    }
+  };
 
   const history = useNavigate();
 
   return (
-    <div className="main">
-      <div className="titulo"><h1>Subir Reporte</h1></div>
-      <button onClick={()=> history("/menu")}>Regresar a Menú Principal</button>
-      <h3> Seleccionar Empresa</h3>
-      <div className="centeredContainerSelect">
-      <Select defaultInputValue={selectedOption}
-        onChange={handleOnChange}
-        options={companies}
-        getOptionLabel={option => option.Nombre}
-      />
-      </div>
+    <div className="menubox3">
+      <div className="sub-menubox3">
+        <div>
+          <h1>Subir Reporte</h1>
 
-      <div className="centeredContainer">
+          <div className="menu-button">
+            <button className="button3" onClick={() => history("/menu")}>
+              Regresar a Menú Principal
+            </button>
+          </div>
+          <div className="menu-button">
+            <h3> Seleccionar Empresa</h3>
+          </div>
 
-      <input type="file" accept=".xlsx,.csv"  onChange={handleAccountFile} />
-        <form onSubmit={handleAccountSubmit}> <br />
-          <button disabled={selectedOption === '' ? true : false || selectedAccountFileExt !== true} >Subir Cuentas</button>
-        </form>
-        <br />
+          <div className="menu-button">
+            <Select
+              defaultInputValue={selectedOption}
+              onChange={handleOnChange}
+              options={companies}
+              getOptionLabel={(option) => option.Nombre}
+            />
+          </div>
 
-        <input type="file" accept=".xlsx,.csv" onChange={handleMoveFile} />
-        <form onSubmit={handleMoveSubmit}> <br />
-          <button disabled={selectedOption === '' ? true : false || selectedMoveFileExt !== true} >Subir Movimientos</button>
+          <div className="menu-button">
+            <input
+              type="file"
+              accept=".xlsx,.csv"
+              onChange={handleAccountFile}
+            />
+          </div>
 
-        </form>
+          <div className="menu-button">
+            <form onSubmit={handleAccountSubmit}>
+              <button
+                className="button3"
+                disabled={
+                  selectedOption === ""
+                    ? true
+                    : false || selectedAccountFileExt !== true
+                }
+              >
+                Subir Cuentas
+              </button>
+            </form>
+          </div>
+
+          <div className="menu-button">
+            <input type="file" accept=".xlsx,.csv" onChange={handleMoveFile} />
+          </div>
+          <div className="menu-button">
+            <form onSubmit={handleMoveSubmit}>
+              <button
+                className="button3"
+                disabled={
+                  selectedOption === ""
+                    ? true
+                    : false || selectedMoveFileExt !== true
+                }
+              >
+                Subir Movimientos
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-
   );
 }
 

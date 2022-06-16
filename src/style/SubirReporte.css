@@ -1,0 +1,18 @@
+.menubox3 {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    padding: 40px 0 90px 0;
+    background-color: rgb(252, 252, 252);
+  }
+  
+  .sub-menubox3 {
+    display: flex;
+    justify-content: center;
+    height: 750px;
+    width: 35%;
+    box-shadow: 11px 12px 13px 12px rgb(207 207 207);
+    padding-top: 30px;
+    border-radius: 30px;
+    background-color: white;
+  }

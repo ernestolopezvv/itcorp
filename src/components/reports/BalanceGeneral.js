@@ -88,7 +88,8 @@ const BalanceGeneral = () => {
         <div className="mainReportes">
         <div className = "titulo"><h1>Balance General</h1></div>
         <div className = "centeredContainer">
-            <button onClick={()=> history("/reportes")}>Regresar a Menú Reporte</button> 
+            <button onClick={()=> history("/reportes")}>Regresar a Menú Reporte</button>
+            <button onClick={createPDF} >Descargar en PDF</button>      
         </div>
         <div className="Balance">
 
@@ -109,7 +110,7 @@ const BalanceGeneral = () => {
             || fechaFinalComp !== true}> Generar Balance </button>        
                 {listTotales.map((aux, cont) =>{
                    
-                   return <table align = "center">
+                   return <table align = "center" id="Table">
                    <tr height={700}>
                    <td>
                       <table> <div>                               
@@ -264,6 +265,29 @@ const BalanceGeneral = () => {
             </div>
           </div>
     );
+
+    function createPDF() {
+        var sTable = document.getElementById('Table').innerHTML;
+
+        var style = "<style>";
+        style = style + "table {width: 100%;font: 10px Calibri;}";
+        style = style + "table, th, td {border: solid 2px #DDD; border-collapse: collapse;";
+        style = style + "padding: 2px 3px;text-align: center;}";
+        style = style + ".left{text-align:left};.right{text-align:right};"
+        style = style + "</style>";
+
+        // CREATE A WINDOW OBJECT.
+        var win = window.open('', '', 'height=700,width=700');
+
+        win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
+        win.document.write('</head>');
+        win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
+        win.document.write('</body></html>');
+
+        win.document.close(); 	// CLOSE THE CURRENT WINDOW.
+
+        win.print();    // PRINT THE CONTENTS.
+    }
 } 
 
 export default BalanceGeneral;

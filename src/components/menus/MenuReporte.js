@@ -10,6 +10,11 @@ function MenuReporte() {
         <div>
           <h1>Seleccionar reporte</h1>
 
+          <div className="menu-button>">
+            <button className="button3" onClick={() => history("/menu")}>
+              Regresar a Menú Principal
+            </button>
+          </div>
           <div className="menu-button">
             <button
               className="button3"

@@ -17,6 +17,45 @@
   background-color: white;
 }
 
+.sub-menubox2 {
+  display: flex;
+  justify-content: center;
+  height: 550px;
+  width: 35%;
+  box-shadow: 11px 12px 13px 12px rgb(207 207 207);
+  padding-top: 30px;
+  border-radius: 30px;
+  background-color: white;
+}
+
+.sub-menubox3 {
+  display: flex;
+  justify-content: center;
+  height: 750px;
+  width: 35%;
+  box-shadow: 11px 12px 13px 12px rgb(207 207 207);
+  padding-top: 30px;
+  border-radius: 30px;
+  background-color: white;
+}
+
+.scroll-list {
+  width: 90%;
+  height: 200px;
+  background-color: rgba(22, 21, 21, 0.063);
+  overflow: scroll;
+  border: 2px solid #f9ab00;
+  box-shadow: 11px 12px 13px 12px rgb(207 207 207);
+}
+.scroll-list2 {
+  width: 110%;
+  height: 200px;
+  background-color: rgba(22, 21, 21, 0.063);
+  overflow: scroll;
+  border: 2px solid #f9ab00;
+  box-shadow: 11px 12px 13px 12px rgb(207 207 207);
+}
+
 .login-input {
   width: 300px;
   height: 50px;
@@ -47,6 +86,13 @@
   border-radius: 25px;
   color: white;
   font-size: 25px;
+}
+.button4 {
+  width: 20px;
+  height: 6vh;
+  border-radius: 25px;
+  color: white;
+  font-size: 15px;
 }
 .link {
   padding-top: 20px;

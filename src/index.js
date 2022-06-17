@@ -9,6 +9,7 @@ import "./style/table.css";
 import "./style/Register.css";
 import "./style/Menu.css";
 import "./style/MenuReporte.css";
+import "./style/SubirReporte.css";
 
 import App from "./App";
 import { AuthProvider } from "./context/AuthProvider";

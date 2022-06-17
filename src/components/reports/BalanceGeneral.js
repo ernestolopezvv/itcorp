@@ -132,273 +132,282 @@ const BalanceGeneral = () => {
           </div>
         </div>
       </div>
-      <div className="Balance">
-        {listTotales.map((aux, cont) => {
-          return (
-            <table align="center" id="Table">
-              <tr height={700}>
-                <td>
-                  <table>
-                    {" "}
-                    <div>
-                      <thead>
-                        <th width={250}>{aux.balance[0].seccion} </th>
-                      </thead>
-                      {aux.balance[0].contenido.map((val, i) => {
-                        return (
-                          <div key={i}>
-                            <thead>
+
+      <div>
+        <div className="Balance">
+          {listTotales.map((aux, cont) => {
+            return (
+              <table align="center" id="Table">
+                <tr height={700}>
+                  <td>
+                    <table>
+                      {" "}
+                      <div>
+                        <thead>
+                          <th width={250}>{aux.balance[0].seccion} </th>
+                        </thead>
+                        {aux.balance[0].contenido.map((val, i) => {
+                          return (
+                            <div key={i}>
+                              <thead>
+                                {" "}
+                                <tr>
+                                  <td align="left">
+                                    {" "}
+                                    {"\xa0\xa0\xa0"}
+                                    {val.tipo}{" "}
+                                  </td>
+                                  <td> </td>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {Object.values(val.datos).map((value, j) => {
+                                  return (
+                                    <tr key={j}>
+                                      <td align="left" width={300}>
+                                        {value.nombre}{" "}
+                                      </td>
+                                      <td align="right" width={100}>
+                                        {" "}
+                                        {Intl.NumberFormat("en-US").format(
+                                          value.saldo.toFixed(2)
+                                        )}{" "}
+                                      </td>
+                                    </tr>
+                                  );
+                                })}
+                                <br></br>
+                                <tr>
+                                  <td width={300} align="left">
+                                    {" "}
+                                    {"\xa0\xa0\xa0 Total"} {val.tipo}
+                                  </td>
+                                  <td align="right" width={100}>
+                                    {" "}
+                                    {Intl.NumberFormat("en-US").format(
+                                      val.totalTipo.toFixed(2)
+                                    )}
+                                  </td>
+                                </tr>
+                                <br></br> <br></br> <br></br>
+                              </tbody>
+                            </div>
+                          );
+                        })}
+                        <tbody>
+                          <tr>
+                            <th width={300}>
                               {" "}
-                              <tr>
-                                <td align="left">
-                                  {" "}
-                                  {"\xa0\xa0\xa0"}
-                                  {val.tipo}{" "}
-                                </td>
-                                <td> </td>
-                              </tr>
+                              SUMA DEL {aux.balance[0].seccion}
+                            </th>
+                            <td align="right" width={100}>
+                              {" "}
+                              {Intl.NumberFormat("en-US").format(
+                                listTotales[0].balance[0].total.toFixed(2)
+                              )}{" "}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </div>
+                    </table>
+                  </td>
+
+                  <td>
+                    <tr height={400}>
+                      {" "}
+                      <td>
+                        <table>
+                          {" "}
+                          <div>
+                            <thead>
+                              <th width={250}>{aux.balance[1].seccion} </th>
                             </thead>
+                            {aux.balance[1].contenido.map((val, i) => {
+                              return (
+                                <div key={i}>
+                                  <thead>
+                                    {" "}
+                                    <tr>
+                                      <td align="left">
+                                        {" "}
+                                        {"\xa0\xa0\xa0"}
+                                        {val.tipo}{" "}
+                                      </td>
+                                      <td> </td>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {Object.values(val.datos).map(
+                                      (value, j) => {
+                                        return (
+                                          <tr key={j}>
+                                            <td align="left" width={300}>
+                                              {value.nombre}{" "}
+                                            </td>
+                                            <td align="right" width={100}>
+                                              {" "}
+                                              {Intl.NumberFormat(
+                                                "en-US"
+                                              ).format(
+                                                value.saldo.toFixed(2)
+                                              )}{" "}
+                                            </td>
+                                          </tr>
+                                        );
+                                      }
+                                    )}
+                                    <br></br>
+                                    <tr>
+                                      <td width={300} align="left">
+                                        {" "}
+                                        {"\xa0\xa0\xa0 Total"} {val.tipo}
+                                      </td>
+                                      <td align="right" width={100}>
+                                        {" "}
+                                        {Intl.NumberFormat("en-US").format(
+                                          val.totalTipo.toFixed(2)
+                                        )}
+                                      </td>
+                                    </tr>
+                                    <br></br>
+                                  </tbody>
+                                </div>
+                              );
+                            })}
                             <tbody>
-                              {Object.values(val.datos).map((value, j) => {
-                                return (
-                                  <tr key={j}>
-                                    <td align="left" width={300}>
-                                      {value.nombre}{" "}
-                                    </td>
-                                    <td align="right" width={100}>
-                                      {" "}
-                                      {Intl.NumberFormat("en-US").format(
-                                        value.saldo.toFixed(2)
-                                      )}{" "}
-                                    </td>
-                                  </tr>
-                                );
-                              })}
-                              <br></br>
-                              <tr>
-                                <td width={300} align="left">
+                              <tr height>
+                                <th width={300}>
                                   {" "}
-                                  {"\xa0\xa0\xa0 Total"} {val.tipo}
-                                </td>
+                                  SUMA DEL {aux.balance[1].seccion}
+                                </th>
                                 <td align="right" width={100}>
                                   {" "}
                                   {Intl.NumberFormat("en-US").format(
-                                    val.totalTipo.toFixed(2)
-                                  )}
+                                    aux.balance[1].total.toFixed(2)
+                                  )}{" "}
                                 </td>
                               </tr>
-                              <br></br> <br></br> <br></br>
                             </tbody>
                           </div>
-                        );
-                      })}
-                      <tbody>
-                        <tr>
-                          <th width={300}>
-                            {" "}
-                            SUMA DEL {aux.balance[0].seccion}
-                          </th>
-                          <td align="right" width={100}>
-                            {" "}
-                            {Intl.NumberFormat("en-US").format(
-                              listTotales[0].balance[0].total.toFixed(2)
-                            )}{" "}
-                          </td>
-                        </tr>
-                      </tbody>
-                    </div>
-                  </table>
-                </td>
+                        </table>
+                      </td>{" "}
+                    </tr>
 
-                <td>
-                  <tr height={400}>
-                    {" "}
-                    <td>
-                      <table>
-                        {" "}
-                        <div>
-                          <thead>
-                            <th width={250}>{aux.balance[1].seccion} </th>
-                          </thead>
-                          {aux.balance[1].contenido.map((val, i) => {
-                            return (
-                              <div key={i}>
-                                <thead>
+                    <tr height={300}>
+                      {" "}
+                      <td>
+                        <table>
+                          {" "}
+                          <div>
+                            <thead>
+                              <th width={250}>{aux.balance[2].seccion} </th>
+                            </thead>
+                            {aux.balance[2].contenido.map((val, i) => {
+                              return (
+                                <div key={i}>
+                                  <thead>
+                                    {" "}
+                                    <tr>
+                                      <td align="left">
+                                        {" "}
+                                        {"\xa0\xa0\xa0"}
+                                        {val.tipo}{" "}
+                                      </td>
+                                      <td> </td>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {Object.values(val.datos).map(
+                                      (value, j) => {
+                                        return (
+                                          <tr key={j}>
+                                            <td align="left" width={300}>
+                                              {value.nombre}{" "}
+                                            </td>
+                                            <td align="right" width={100}>
+                                              {" "}
+                                              {Intl.NumberFormat(
+                                                "en-US"
+                                              ).format(value.saldo)}{" "}
+                                            </td>
+                                          </tr>
+                                        );
+                                      }
+                                    )}
+                                    <br></br>
+                                    <tr>
+                                      <td width={300} align="left">
+                                        {" "}
+                                        {"\xa0\xa0\xa0 Total"} {val.tipo}
+                                      </td>
+                                      <td align="right" width={100}>
+                                        {" "}
+                                        {Intl.NumberFormat("en-US").format(
+                                          val.totalTipo.toFixed(2)
+                                        )}
+                                      </td>
+                                    </tr>
+                                    <br></br>
+                                    <tr>
+                                      <td align="left">
+                                        {" "}
+                                        Utilidad o Pérdida del Ejercicio
+                                      </td>
+                                      <td align="right">
+                                        {" "}
+                                        {Intl.NumberFormat("en-US").format(
+                                          aux.balance[2].resultados
+                                        )}{" "}
+                                      </td>
+                                    </tr>
+                                    <br></br>
+                                  </tbody>
+                                </div>
+                              );
+                            })}
+                            <tbody>
+                              <tr>
+                                <th width={300}>
                                   {" "}
-                                  <tr>
-                                    <td align="left">
-                                      {" "}
-                                      {"\xa0\xa0\xa0"}
-                                      {val.tipo}{" "}
-                                    </td>
-                                    <td> </td>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  {Object.values(val.datos).map((value, j) => {
-                                    return (
-                                      <tr key={j}>
-                                        <td align="left" width={300}>
-                                          {value.nombre}{" "}
-                                        </td>
-                                        <td align="right" width={100}>
-                                          {" "}
-                                          {Intl.NumberFormat("en-US").format(
-                                            value.saldo.toFixed(2)
-                                          )}{" "}
-                                        </td>
-                                      </tr>
-                                    );
-                                  })}
-                                  <br></br>
-                                  <tr>
-                                    <td width={300} align="left">
-                                      {" "}
-                                      {"\xa0\xa0\xa0 Total"} {val.tipo}
-                                    </td>
-                                    <td align="right" width={100}>
-                                      {" "}
-                                      {Intl.NumberFormat("en-US").format(
-                                        val.totalTipo.toFixed(2)
-                                      )}
-                                    </td>
-                                  </tr>
-                                  <br></br>
-                                </tbody>
-                              </div>
-                            );
-                          })}
-                          <tbody>
-                            <tr height>
-                              <th width={300}>
-                                {" "}
-                                SUMA DEL {aux.balance[1].seccion}
-                              </th>
-                              <td align="right" width={100}>
-                                {" "}
-                                {Intl.NumberFormat("en-US").format(
-                                  aux.balance[1].total.toFixed(2)
-                                )}{" "}
-                              </td>
-                            </tr>
-                          </tbody>
-                        </div>
-                      </table>
-                    </td>{" "}
-                  </tr>
-
-                  <tr height={300}>
-                    {" "}
-                    <td>
-                      <table>
-                        {" "}
-                        <div>
-                          <thead>
-                            <th width={250}>{aux.balance[2].seccion} </th>
-                          </thead>
-                          {aux.balance[2].contenido.map((val, i) => {
-                            return (
-                              <div key={i}>
-                                <thead>
+                                  SUMA DEL {aux.balance[2].seccion}
+                                </th>
+                                <td align="right" width={100}>
                                   {" "}
-                                  <tr>
-                                    <td align="left">
-                                      {" "}
-                                      {"\xa0\xa0\xa0"}
-                                      {val.tipo}{" "}
-                                    </td>
-                                    <td> </td>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  {Object.values(val.datos).map((value, j) => {
-                                    return (
-                                      <tr key={j}>
-                                        <td align="left" width={300}>
-                                          {value.nombre}{" "}
-                                        </td>
-                                        <td align="right" width={100}>
-                                          {" "}
-                                          {Intl.NumberFormat("en-US").format(
-                                            value.saldo
-                                          )}{" "}
-                                        </td>
-                                      </tr>
-                                    );
-                                  })}
-                                  <br></br>
-                                  <tr>
-                                    <td width={300} align="left">
-                                      {" "}
-                                      {"\xa0\xa0\xa0 Total"} {val.tipo}
-                                    </td>
-                                    <td align="right" width={100}>
-                                      {" "}
-                                      {Intl.NumberFormat("en-US").format(
-                                        val.totalTipo.toFixed(2)
-                                      )}
-                                    </td>
-                                  </tr>
-                                  <br></br>
-                                  <tr>
-                                    <td align="left">
-                                      {" "}
-                                      Utilidad o Pérdida del Ejercicio
-                                    </td>
-                                    <td align="right">
-                                      {" "}
-                                      {Intl.NumberFormat("en-US").format(
-                                        aux.balance[2].resultados
-                                      )}{" "}
-                                    </td>
-                                  </tr>
-                                  <br></br>
-                                </tbody>
-                              </div>
-                            );
-                          })}
-                          <tbody>
-                            <tr>
-                              <th width={300}>
-                                {" "}
-                                SUMA DEL {aux.balance[2].seccion}
-                              </th>
-                              <td align="right" width={100}>
-                                {" "}
-                                {Intl.NumberFormat("en-US").format(
-                                  aux.balance[2].total +
-                                    aux.balance[2].resultados
-                                )}{" "}
-                              </td>
-                            </tr>
-                            <br></br>
-                            <tr>
-                              <th width={200}>
-                                {" "}
-                                SUMA DEL {aux.balance[1].seccion} y{" "}
-                                {aux.balance[2].seccion}
-                              </th>
-                              <td align="right" width={50}>
-                                {" "}
-                                {Intl.NumberFormat("en-US").format(
-                                  (
-                                    aux.balance[1].total +
+                                  {Intl.NumberFormat("en-US").format(
                                     aux.balance[2].total +
-                                    aux.balance[2].resultados
-                                  ).toFixed(2)
-                                )}{" "}
-                              </td>
-                            </tr>
-                          </tbody>
-                        </div>
-                      </table>
-                    </td>{" "}
-                  </tr>
-                </td>
-              </tr>
-            </table>
-          );
-        })}
+                                      aux.balance[2].resultados
+                                  )}{" "}
+                                </td>
+                              </tr>
+                              <br></br>
+                              <tr>
+                                <th width={200}>
+                                  {" "}
+                                  SUMA DEL {aux.balance[1].seccion} y{" "}
+                                  {aux.balance[2].seccion}
+                                </th>
+                                <td align="right" width={50}>
+                                  {" "}
+                                  {Intl.NumberFormat("en-US").format(
+                                    (
+                                      aux.balance[1].total +
+                                      aux.balance[2].total +
+                                      aux.balance[2].resultados
+                                    ).toFixed(2)
+                                  )}{" "}
+                                </td>
+                              </tr>
+                            </tbody>
+                          </div>
+                        </table>
+                      </td>{" "}
+                    </tr>
+                  </td>
+                </tr>
+              </table>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

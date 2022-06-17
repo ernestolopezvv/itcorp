@@ -148,75 +148,73 @@ const BalanzaComprobacion = () => {
         </div>
       </div>
 
-      <div className="Comprobacion">
-        <div className="Table" id="Table">
-          {listCuentas.length > 0 && (
-            <table className="table ">
-              <thead>
-                <tr>
-                  {colNames.map((headerItem, index) => (
-                    <th key={index}>{headerItem.toUpperCase()}</th>
-                  ))}
-                </tr>
-                <tr>
-                  {subNames.map((headerItem, index) => (
-                    <th key={index}>{headerItem.toUpperCase()}</th>
-                  ))}
-                </tr>
-              </thead>
-
-              <tbody>
-                {Object.values(listCuentas).map((val, index) => (
-                  <tr key={index}>
-                    <td> {val.Codigo} </td>
-                    <td> {val.Nombre} </td>
-                    <td>
-                      <div className="left">{val.DeudoraInicial} </div>
-                      <div className="right">{val.AcreedoraInicial} </div>
-                    </td>
-                    <td> {val.Cargo_Cuenta} </td>
-                    <td> {val.Abono_Cuenta} </td>
-                    <td>
-                      <div className="left">{val.DeudoraActual} </div>
-                      <div className="right">{val.AcreedoraActual}</div>
-                    </td>
-                  </tr>
+      <div id="Table">
+        {listCuentas.length > 0 && (
+          <table>
+            <thead>
+              <tr>
+                {colNames.map((headerItem, index) => (
+                  <th key={index}>{headerItem.toUpperCase()}</th>
                 ))}
-              </tbody>
-              <tbody>
-                <tr>
-                  <td> </td>
-                  <td>Total cuentas no impresas </td>
-                  <td>
-                    <div className="left">0 </div>
-                    <div className="right">0 </div>
-                  </td>
-                  <td> 0 </td>
-                  <td> 0 </td>
-                  <td>
-                    <div className="left"> 0 </div>
-                    <div className="right"> 0</div>
-                  </td>
-                </tr>
+              </tr>
+              <tr>
+                {subNames.map((headerItem, index) => (
+                  <th key={index}>{headerItem.toUpperCase()}</th>
+                ))}
+              </tr>
+            </thead>
 
-                <tr>
-                  <td> </td>
-                  <td> Sumas iguales </td>
+            <tbody>
+              {Object.values(listCuentas).map((val, index) => (
+                <tr key={index}>
+                  <td> {val.Codigo} </td>
+                  <td> {val.Nombre} </td>
                   <td>
-                    <div className="left">1629749.75 </div>
-                    <div className="right">1629749.75 </div>
+                    <div className="left">{val.DeudoraInicial} </div>
+                    <div className="right">{val.AcreedoraInicial} </div>
                   </td>
-                  <td> 869714.04 </td>
-                  <td>869714.04 </td>
+                  <td> {val.Cargo_Cuenta} </td>
+                  <td> {val.Abono_Cuenta} </td>
                   <td>
-                    <div className="left"> 1812783.64 </div>
-                    <div className="right"> 1812783.64</div>
+                    <div className="left">{val.DeudoraActual} </div>
+                    <div className="right">{val.AcreedoraActual}</div>
                   </td>
                 </tr>
-              </tbody>
-            </table>
-          )}
-        </div>
+              ))}
+            </tbody>
+            <tbody>
+              <tr>
+                <td> </td>
+                <td>Total cuentas no impresas </td>
+                <td>
+                  <div className="left">0 </div>
+                  <div className="right">0 </div>
+                </td>
+                <td> 0 </td>
+                <td> 0 </td>
+                <td>
+                  <div className="left"> 0 </div>
+                  <div className="right"> 0</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td> </td>
+                <td> Sumas iguales </td>
+                <td>
+                  <div className="left">1629749.75 </div>
+                  <div className="right">1629749.75 </div>
+                </td>
+                <td> 869714.04 </td>
+                <td>869714.04 </td>
+                <td>
+                  <div className="left"> 1812783.64 </div>
+                  <div className="right"> 1812783.64</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );

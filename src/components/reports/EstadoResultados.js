@@ -127,8 +127,7 @@ const EstadoResultados = () => {
                   : false || fechaInicioComp !== true || fechaFinalComp !== true
               }
             >
-              {" "}
-              Generar Estado de Resultados{" "}
+              Generar Estado de Resultados
             </button>
           </div>
 
@@ -139,73 +138,70 @@ const EstadoResultados = () => {
           </div>
         </div>
       </div>
+      <div id="Table">
+        {listaEgresos.length > 0 && (
+          <table>
+            <thead>
+              <tr>
+                {colNames.map((headerItem, uno) => (
+                  <th key={uno}>{headerItem.toUpperCase()}</th>
+                ))}
+              </tr>
+            </thead>
 
-      <div className="ReporteResultados">
-        <div className="Table" id="Table">
-          {listaEgresos.length > 0 && (
-            <table className="table ">
-              <thead>
-                <tr>
-                  {colNames.map((headerItem, uno) => (
-                    <th key={uno}>{headerItem.toUpperCase()}</th>
-                  ))}
+            <tbody>
+              <td>Ingresos </td>
+              <tr>
+                <td>{listaEgresos[0].Nombre1}</td>
+                <td>
+                  {listaEgresos[0].Abono_Total1}{" "}
+                  {listaEgresos[0].Abono_Total1 ? "" : "0"}
+                </td>
+                <td>{listaEgresos[0].PorcentajePi}</td>
+                <td>
+                  {listaEgresos[0].Saldo_Total1}{" "}
+                  {listaEgresos[0].Saldo_Total1 ? "" : "0"}
+                </td>
+                <td>{listaEgresos[0].PorcentajeAi}</td>
+              </tr>
+            </tbody>
+
+            <tbody>
+              <td>Egresos </td>
+              {Object.values(listaEgresos).map((val, tres) => (
+                <tr key={tres}>
+                  <td> {val.Nombre} </td>
+                  <td> {val.Cargo_Cuenta} </td>
+                  <td> {val.PorcentajeP} </td>
+                  <td> {val.Saldo_Cuenta} </td>
+                  <td> {val.PorcentajeA} </td>
                 </tr>
-              </thead>
+              ))}{" "}
+            </tbody>
 
-              <tbody>
-                <td>Ingresos </td>
-                <tr>
-                  <td>{listaEgresos[0].Nombre1}</td>
-                  <td>
-                    {listaEgresos[0].Abono_Total1}{" "}
-                    {listaEgresos[0].Abono_Total1 ? "" : "0"}
-                  </td>
-                  <td>{listaEgresos[0].PorcentajePi}</td>
-                  <td>
-                    {listaEgresos[0].Saldo_Total1}{" "}
-                    {listaEgresos[0].Saldo_Total1 ? "" : "0"}
-                  </td>
-                  <td>{listaEgresos[0].PorcentajeAi}</td>
-                </tr>
-              </tbody>
+            <tbody>
+              <td>Total Egresos </td>
+              <tr>
+                <td></td>
+                <td>{listaEgresos[0].Saldo_TotalE}</td>
+                <td></td>
+                <td>{listaEgresos[0].Saldo_Totali}</td>
+                <td></td>
+              </tr>
+            </tbody>
 
-              <tbody>
-                <td>Egresos </td>
-                {Object.values(listaEgresos).map((val, tres) => (
-                  <tr key={tres}>
-                    <td> {val.Nombre} </td>
-                    <td> {val.Cargo_Cuenta} </td>
-                    <td> {val.PorcentajeP} </td>
-                    <td> {val.Saldo_Cuenta} </td>
-                    <td> {val.PorcentajeA} </td>
-                  </tr>
-                ))}{" "}
-              </tbody>
-
-              <tbody>
-                <td>Total Egresos </td>
-                <tr>
-                  <td></td>
-                  <td>{listaEgresos[0].Saldo_TotalE}</td>
-                  <td></td>
-                  <td>{listaEgresos[0].Saldo_Totali}</td>
-                  <td></td>
-                </tr>
-              </tbody>
-
-              <tbody>
-                <td>Utilidad </td>
-                <tr>
-                  <td></td>
-                  <td>{listaEgresos[listaEgresos.length - 1][0]}</td>
-                  <td></td>
-                  <td>{listaEgresos[listaEgresos.length - 1][1]}</td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          )}
-        </div>
+            <tbody>
+              <td>Utilidad </td>
+              <tr>
+                <td></td>
+                <td>{listaEgresos[listaEgresos.length - 1][0]}</td>
+                <td></td>
+                <td>{listaEgresos[listaEgresos.length - 1][1]}</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );
